@@ -9,17 +9,8 @@ export default function Resources() {
                 <p className="subtitle">DataJoint Neuro is the principal contributor to the free, community-oriented, open-source tools comprising the DataJoint ecosystem:</p>
                 <ul className="resourcesListRow">
                     <li className="resourcePanel">DataJoint Reference <span>Documentation</span>
-                        <a href="https://docs.datajoint.io" target="_blank"><img src="/static/images/icons/doc_white.png" /></a></li>
-                    <li className="resourcePanel">DataJoint <span>Tutorials</span>
-                        <a href="https://tutorials.datajoint.io" target="_blank"><img src="/static/images/icons/blackboard_white.png" /></a></li>
-                    <li className="resourcePanel">DataJoint Server <span>Configuration</span>
-                        <a href="https://github.com/datajoint/mysql-docker" target="_blank"><img src="/static/images/icons/server-config-white.png" /></a></li>
-                    <li className="resourcePanel">DataJoint <span>Python Client</span>
-                        <a href="https://github.com/datajoint/datajoint-python" target="_blank"><img src="/static/images/icons/python-logo-monoc.png" /></a>
-                    </li>
-                    <li className="resourcePanel">DataJoint <span>MATLAB Client</span>
-                    <a href="https://github.com/datajoint/datajoint-matlab" target="_blank"><img src="/static/images/icons/matlab-logo-monoc.png" /></a>
-                    </li>
+                        <a href="https://docs.datajoint.io" target="_blank"><img src="/static/images/icons/news-pin" /></a></li>
+                    
                 </ul>
             </div>
             <PipelinePage></PipelinePage>

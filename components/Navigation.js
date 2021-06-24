@@ -155,19 +155,13 @@ class Navigation extends React.Component {
                             <ActiveLink href="/about">About</ActiveLink>
                         </div>
                         <div className="linkWrap">
-                            <ActiveLink href="/services">Services</ActiveLink>
+                            <ActiveLink href="/services">SciOps</ActiveLink>
                         </div>
                         <div className="linkWrap">
                             <ActiveLink href="/resources">Resources</ActiveLink>
                         </div>
                         <div className="linkWrap">
-                            <ActiveLink href="/team">Team</ActiveLink>
-                        </div>
-                        <div className="linkWrap">
                             <ActiveLink href="/news">News</ActiveLink>
-                        </div>
-                        <div className="linkWrap">
-                            <ActiveLink href="/jobs">Jobs</ActiveLink>
                         </div>
                         {/* <Link href="/about">
                             <a className="linkStyle" style={this.isInView('/about')}>About</a>

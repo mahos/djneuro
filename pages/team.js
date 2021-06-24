@@ -180,7 +180,6 @@ const Team = () => (
             }
             .teamHead {
                 background-color: rgba(0, 0, 0, 0.9);
-                background-image: url("/static/images/artwork/networkLines.svg");
                 background-attachment: fixed;
                 background-size: 180px;
                 background-repeat: repeat;

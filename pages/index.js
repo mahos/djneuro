@@ -3,16 +3,6 @@ import Slider from 'react-slick';
 import React, { useState, useEffect } from 'react';
 
 
-const homeTop = {
-    backgroundImage: 'url("/static/images/artwork/3P_surface_bright.jpg")',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    color: '#E1EBF7',
-    padding: '17% 14%',
-    lineHeight: '1.4em',
-    textAlign: 'left'
-}
-
 const sliderSetup = {
     className: "slider variable-width",
     // centerMode: true,
@@ -53,8 +43,6 @@ class Index extends React.Component {
         super(props);
         this.state = {
             noticeOpen: true,
-            tagline1: true,
-            tagline: 'neurophysiology'
         }
     }
     closeNotice(event) {
@@ -63,19 +51,6 @@ class Index extends React.Component {
 
     openNotice(event) {
         this.setState({ noticeOpen: true})
-    }
-
-    setTagline() {
-        // still in works
-        const [tagEndings] = useState(0);
-        tagEndings = ['neurophysiology', 'machine learning', 'data analysis']
-
-        useEffect(() => {
-            const interval = setInterval(() => {
-            this.setState.tagline = tagEndings[Math.floor(Math.random() * 3)];
-            }, 2000);
-            return () => clearInterval(interval);
-        }, []);
     }
 
     render() {
@@ -102,165 +77,234 @@ class Index extends React.Component {
                 </div>
                 <button style={this.state.noticeOpen ? { visibility: 'hidden' } : { visibility: 'visible' }} className="openNoticeButton" onClick={(e) => this.openNotice(e)}>SfN 2019 Notice</button> */}
                 
-                <div style={homeTop}>
-                    {/* <h1 className="homeTopTagline">Data pipelines built by you.</h1> */}
-                    <h1 className="homeTopTagline">Data pipelines built for {this.state.tagline}</h1>
-                    <p className="homeTopSubtitle">
+                <section className="hero-section">
+                  <h1 className="home-top-tagline">Data solutions <br />for <span className="highlight">team science</span></h1>
+                  <img className="home-top-image" src="./static/images/top-area-image.svg" alt="team work image"/>
+                </section>
+                <section className="details-section">
+                  <div className="container">
+                    <div className="detail-image-area">
+                      <img src="./static/images/node-wheel.svg" className="node-wheel-icon" />
+                      <img src="./static/images/analysis-screen.svg" className="analysis-screen-icon" />
+                    </div>
+                    <div className="detail-texts">
+                      <p>DataJoint (the company) offers a comprehensive and transparent data management solution for science labs 
+                        and multi-lab collaborations, spanning the entire life cycle of data from project planning, to acquisition 
+                        and processing, to distributed computation and publishing.
                         <br />
-                        <b>DataJoint Neuro®</b> enables research teams to design scientific databases
-                        and computational pipelines by providing support, resources, and services.
-                        <br /><br />
-                        Our focus is on neuroscience and AI.
-                    </p>
-                </div>
-                <div className="partnerSection">
-                    <h4>Partners</h4>
-                    <ul>
-                        {/* <li>Baylor College of Medicine</li> */}
-                        <li>
-                            <img className="partnerLogo" src="./static/images/logo/color/nwb_logo.png" alt="neurodata without borders logo" />
-                        </li>
-                        <li>
-                            <img src="./static/images/logo/color/mathworks_logo.png" alt="mathworks logo" />
-                        </li>
-                        <li>
-                            <img src="./static/images/logo/color/aws_logo.png" alt="amazon web services logo" />
-                        </li>
-                    </ul>
-                </div>
-                <div className="customerSection">
-                    <h4>Our Projects and Customers</h4>
-                    <div className="sliderContainer">
+                        <br />
+                        Our mission is to provide resources for designing <em className="extra-emphasis">data pipelines for flexible access, data integrity, distributed 
+                        computation, and streamlined collaboration</em> through principled use of DataJoint, the software.
+                      </p>    
+                    </div>
+                  </div>
+                </section>
+                <section className="partner-section">
+                  <div className="container">
+                    <h4 className="section-title">Partners</h4>
+                    <div className="partner-listing">
+                      <img className="partner-logo" src="./static/images/logo/color/nwb_logo.png" alt="neurodata without borders logo" />
+                      <img className="partner-logo" src="./static/images/logo/color/mathworks_logo.png" alt="mathworks logo" />
+                      <img className="partner-logo" src="./static/images/logo/color/aws_logo.png" alt="amazon web services logo" />
+                    </div>
+                  </div>
+                </section>
+                <section className="customer-section">
+                  <div className="container">
+                    <h4 className="section-title">Our Projects and Customers</h4>
+                    <div className="slider-container">
                         <Slider {...sliderSetup}>
-                            <div className="sliderBooth">
-                                {/* <img src="./static/images/logo/color/hhmi_janelia_logo.png" alt="HHMI Janelia Research Campus Logo" width="180px" /> */}
+                            <div className="slider-booth">
                                 <img src="./static/images/logo/color/hhmi_janelia_logo.png" alt="HHMI Janelia Research Campus Logo" height="70px" />
-                                <div className="customerDetail">
+                                <div className="customer-detail">
                                     <p>Svoboda Lab @ HHMI Janelia Research Campus</p>
                                 </div>
                             </div>
-                            <div className="sliderBooth">
-                                {/* <img src="./static/images/logo/color/ibl_logo.png" alt="International Brain Laboratory Logo" width="180px" /> */}
+                            <div className="slider-booth">
                                 <img src="./static/images/logo/color/ibl_logo.png" alt="International Brain Laboratory Logo" height="70px" />
-                                <div className="customerDetail">
+                                <div className="customer-detail">
                                     <p>International Brain Laboratory</p>
                                 </div>
                             </div>
-                            <div className="sliderBooth">
+                            <div className="slider-booth">
                                 <img src="./static/images/logo/color/kavli_logo.png" alt="Kavli Institute for Systems Neuroscience Logo" height="70px" />
-                                <div className="customerDetail">
+                                <div className="customer-detail">
                                     <p>Moser Lab @ Kavli Institute</p>
                                 </div>
                             </div>
-                            <div className="sliderBooth">
+                            <div className="slider-booth">
                                 <img src="./static/images/logo/color/bcm_logo.png" alt="Baylor College of Medicine Logo" height="70px" />
-                                <div className="customerDetail">
+                                <div className="customer-detail">
                                     <p>Nuo lab @ Baylor College of Medicine</p>
                                 </div>
                             </div>
-                            <div className="sliderBooth">
-                                {/* <img src="./static/images/logo/color/pni_logo.png" alt="Princeton Neuroscience Institute Logo" width="100px" /> */}
+                            <div className="slider-booth">
                                 <img src="./static/images/logo/color/pni_logo.png" alt="Princeton Neuroscience Institute Logo" height="70px" />
-                                <div className="customerDetail">
+                                <div className="customer-detail">
                                     <p>Princeton Neuroscience Institute</p>
                                 </div>
                             </div>
-                            <div className="sliderBooth">
+                            <div className="slider-booth">
                                 <img src="./static/images/logo/color/ucsf_logo.png" alt="UCSF Logo" height="70px" />
-                                <div className="customerDetail">
+                                <div className="customer-detail">
                                     <p>Frank lab @ University of California San Francisco</p>
                                 </div>
                             </div>
-                            <div className="sliderBooth">
+                            <div className="slider-booth">
                                 <img src="./static/images/logo/color/columbia_logo.png" alt="Columbia University Logo" height="70px" />
-                                <div className="customerDetail">
+                                <div className="customer-detail">
                                     <p>Columbia University</p>
                                 </div>
                             </div>
                         </Slider>
                     </div>
-                </div>
+                  </div>
+                </section>
               </div>
               <style jsx>{`
-                .contentContainer {
-                  position: relative;
+                .content-container {
+                    position: relative;
                 }
                 p {
                     margin: 0;
                 }
-                h1.homeTopTagline {
-                    font-weight: 600;
-                    font-size: 330%;
-                    line-height: 1.2;
-                }
-                p.homeTopSubtitle {
-                    // font-weight: 300;
-                    font-size: 120%;
-                    position: 'relative'
-                }
-                .partnerSection,
-                .customerSection {
+
+                section {
                     height: 100%;
                     position: relative;
-                    text-align: center;
                     z-index: 150;
                 }
 
-                .partnerSection h4,
-                .customerSection h4 {
-                    font-size: 115%;
-                    font-weight: 300;
+                section .container {
+                  position: relative;
+                  width: 80%;
+                  margin: 0 auto;
+                  padding: 10%;
                 }
 
-                .partnerSection {
-                    background: linear-gradient(rgba(255,255,255,1.0), rgba(251,255,255,0.75));
-                    padding: 4% 0 6% 0;
+                section .section-title {
+                  font-weight: 600;
+                  font-style: italic;
+                  color: #4977ED;
+                  margin: 0;
                 }
 
-                .partnerSection ul {
-                    list-style: none;
-                    display: inline-flex;
-                    flex-direction: column;
+                .hero-section {
+                    background-image: linear-gradient(to right bottom, #050E27, #4977ED 60%, #3293F1 70%, #3B85F0 80%, #1CA9F9 95%);
+                    display: flex;
+                    padding: 164px 10% 32px;
                 }
-                .partnerSection li {
-                    margin: 25px;
+
+                h1.home-top-tagline {
+                    font-weight: 600;
+                    font-size: 3.2rem;
+                    line-height: 1.2;
+                    color: #FCFCFC;
+                    text-align: left;
+                    margin: 0;
                 }
-                .partnerSection img {
-                    height: 60px;
-                    transform: translateX(-3%);
+
+                .home-top-tagline .highlight {
+                    color: #1CA9F9;
                 }
-                .customerSection {
-                    padding: 4% 0 12% 0;
-                    background-color: #E0E0E0;
+
+                img.home-top-image {
+                    width: 55%;
+                    display: flex;
+                    align-self: flex-end;
+                    margin-top: 114px;s
                 }
-                .sliderContainer {
-                    width: 70%;
-                    margin-left: 15%;
-                    margin-top: 4%;
+
+                .details-section,
+                .customer-section {
+                  background-color: #F2F9FD;
+                }
+
+                .details-section .container {
+                  display: flex;
+                  align-items: center;
+                }
+
+                .details-section .container .detail-image-area {
+                  position: relative;
+                  width: 50%;
+                  display: flex;
+                  flex-direction: column;
+                }
+
+                .detail-image-area img.node-wheel-icon {
+                  width: 130px;
+                  margin-left: 10%;
+                }
+
+                .detail-image-area img.analysis-screen-icon {
+                  width: 170px;
+                  margin-left: 40%;
+                }
+
+                .details-section .container .detail-texts {
+                  position: relative;
+                  width: 50%;
+                }
+
+                .detail-texts p {
+                  text-align: left;
+                  line-height: 1.6rem;
+                }
+
+                .detail-texts p em.extra-emphasis {
+                  font-weight: 600;
+                }
+
+                .partner-section {
+                    background-color: #FCFCFC;
+                }
+
+                .partner-section .container .partner-listing {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-top: 56px;
+                }
+
+                .partner-listing .partner-logo {
+                  height: 60px;
+                }
+
+                .customer-section .container{
+                }
+
+                .slider-container {
+                  width: 100%; 
+                  margin: 56px auto;
                 }
                 
+                .slick-next:after,
+                .slick-prev:before {
+                  opacity: 1;
+                  color: gray !important;
+                }
 
                 .slick-center * {
-                    transform: scale(1.4) !important;
-                    // margin-left: auto;
-                    // margin-right: auto;
+                  transform: scale(1.4) !important;
+                  // margin-left: auto;
+                  // margin-right: auto;
                 }
 
-                .sliderBooth {
-                    border-right: 1px solid lightgrey;
-                    // border-left: 1px solid red;
-                    // border-top: 1px solid red;
-                    // border-bottom: 1px solid red;
-                    margin: 0 20px;
+                .slider-booth {
+                  // border-right: 1px solid lightgrey;
+                  margin: 0 20px;
                 }
 
-                .sliderBooth img {
-                    display: inline-flex;
+                .slider-booth img {
+                  display: flex;
+                  margin: 0 auto;
                 }
-                .sliderBooth .customerDetail {
-                    color: rgb(120, 120, 120);
-                    margin-top: 18px;
-                    font-size: 0.8rem;
+
+                .slider-booth .customer-detail {
+                  color: rgb(120, 120, 120);
+                  margin-top: 18px;
+                  font-size: 0.8rem;
+                  text-align: center;
                 }
                 
 
@@ -269,11 +313,7 @@ class Index extends React.Component {
                 //     color: blue !important;
                 // }
 
-
-                .customerLogoList {
-                    width: 100%;
-                }
-
+                // these are for temporary event banner notices
                 .noticeContainer {
                     // background-color: #e8f4f8;
                     background: linear-gradient(#0f040f, #0f040f, #001226);
@@ -289,7 +329,6 @@ class Index extends React.Component {
                     line-height: 1.4;
                     color: #DDD;
                 }
-
                 .noticeSubtitle a {
                     text-decoration: none;
                     color: #dad2f7;
@@ -298,7 +337,6 @@ class Index extends React.Component {
                 .noticeSubtitle a:hover {
                     color: #e8e3fa;
                 }
-
                 .closeNoticeButton {
                     background-color: blueviolet;
                     color: white;
@@ -308,7 +346,6 @@ class Index extends React.Component {
                     top: 80px;
                     right: 10px;
                 }
-
                 .closeNoticeButton:hover {
                     background-color: purple;
                 }
@@ -329,10 +366,6 @@ class Index extends React.Component {
                     h1.homeTopTagline {
                         font-size: 280%;
                     }
-                    p.homeTopSubtitle {
-                        font-size: 110%;
-                        position: 'relative'
-                    }
                 }
                
                 @media (max-width: 768px) {
@@ -340,19 +373,14 @@ class Index extends React.Component {
                         font-weight: 600;
                         font-size: 240%;
                     }
-                    p.homeTopSubtitle {
-                        // font-weight: 300;
-                        font-size: 100%;
-                        position: 'relative'
-                    }
-                    .partnerSection {
+                    .partner-section {
                         padding: 7% 0;
                     }
-                    .partnerSection img {
+                    .partner-section img {
                         height: 50px;
                         transform: translateX(-5%);
                     }
-                    .customerSection {
+                    .customer-section {
                         padding: 7% 0 120px 0;
                     }
                 }
@@ -361,19 +389,14 @@ class Index extends React.Component {
                         font-weight: 600;
                         font-size: 220%;
                     }
-                    p.homeTopSubtitle {
-                        font-weight: 300;
-                        font-size: 100%;
-                        position: 'relative'
-                    }
-                    .partnerSection {
+                    .partner-section {
                         padding: 7% 0;
                     }
-                    .partnerSection img {
+                    .partner-section img {
                         height: 40px;
                         transform: translateX(-10%);
                     }
-                    .sliderContainer {
+                    .slider-container {
                         width: 90%;
                         margin-left: 4%;
                         margin-top: 4%;

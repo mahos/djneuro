@@ -88,13 +88,13 @@ const About = () => (
     <Layout>
         <div style={background0}>
             <div style={background1}>
-                <img style={djWire} src="/static/images/icons/djIcon-wire-white.png" className="animated pulse"/>
+                <img style={djWire} src="/static/images/icons/member-gh.svg" className="animated pulse"/>
                 <h4>The DataJoint experts</h4>
                 <p>Our team is the principal developer of <a href="https://datajoint.io">DataJoint®</a> — a free, open-source framework 
                 for shared scientific databases and computational data pipelines programmed and accessed directly from MATLAB and Python. </p>
             </div>
             <div style={background2}>
-                <img style={sphereWire} src="/static/images/icons/sphere_white.png" />
+                <img style={sphereWire} src="/static/images/icons/member-gh.svg" />
                 <h4>We work with top neuroscience labs worldwide</h4>
                 <p>We help neuroscientists use DataJoint to accelerate their research.  DataJoint Neuro provides solutions for project planning, 
                     training, data infrastructure, as well as tools and resources for maximizing the productivity of individual labs and large 

@@ -215,7 +215,7 @@ class Jobs extends React.Component {
                 div {
                     background-repeat: no-repeat;
                     color: #E1EBF7;  // blueish muted white
-                    background-image: url("/static/images/artwork/lighteningshape2.svg");
+                    background-image: url("/static/images/artwork/pipette.png");
                     background-attachment: fixed;
                     background-position: top left;
                 }
