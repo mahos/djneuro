@@ -218,7 +218,7 @@ class Navigation extends React.Component {
                     // }
 
                     a.inView {
-                        border-bottom: solid 4px blueviolet;
+                        border-bottom: solid 4px #1CA9F9; // lightest shade of revamped dj logo
                         position: relative;
                         z-index: 100;
                     }
@@ -228,7 +228,7 @@ class Navigation extends React.Component {
                     }
 
                     .linkWrap:hover { 
-                        border-bottom: solid 4px #d6a9ff; // pastel blueviolet
+                        border-bottom: solid 4px #1CA9F9; // lightest shade of revamped dj logo
                     }
 
                     @media(max-width: 768px) {

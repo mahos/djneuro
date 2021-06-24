@@ -18,19 +18,19 @@ const Footer = () => (
               <ul className="column-list">
                 <li className="sns-list">
                   <a href="#">
-                    <img src="./static/images/icons/tw-icon-white-sq.svg" />
+                    <img src="/static/images/icons/tw-icon-white-sq.svg" />
                   </a>
                   <a href="#">
-                    <img src="./static/images/icons/github-icon-white-sq.svg" />
+                    <img src="/static/images/icons/github-icon-white-sq.svg" />
                   </a>
                   <a href="#">
-                    <img src="./static/images/icons/ldn-icon-white-sq.svg" />
+                    <img src="/static/images/icons/ldn-icon-white-sq.svg" />
                   </a>
                   <a href="#">
-                    <img src="./static/images/icons/mblog-icon-white-sq.svg" />
+                    <img src="/static/images/icons/mblog-icon-white-sq.svg" />
                   </a>
                   <a href="#">
-                    <img src="./static/images/icons/ytube-icon-white-sq.svg" />
+                    <img src="/static/images/icons/ytube-icon-white-sq.svg" />
                   </a>
                 </li>
                 <li><a href="#">Contact Us</a></li>
@@ -53,9 +53,9 @@ const Footer = () => (
             <div className="footer-column">
               <h4 className="column-header">Resources</h4>
               <ul className="column-list">
-                <li><a href="#"><span>DataJoint Open Source</span><img className="ext-link-icon" src="./static/images/icons/external-link-icon.svg" /></a></li>
-                <li><a href="#"><span>DataJoint Playground</span><img className="ext-link-icon" src="./static/images/icons/external-link-icon.svg" /></a></li>
-                <li><a href="#"><span>Accounts Management</span><img className="ext-link-icon" src="./static/images/icons/external-link-icon.svg" /></a></li>
+                <li><a href="#"><span>DataJoint Open Source</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
+                <li><a href="#"><span>DataJoint Playground</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
+                <li><a href="#"><span>Accounts Management</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
               </ul>
             </div>
             <div className="footer-column">

@@ -2,7 +2,7 @@ import { withRouter } from 'next/router'
 
 const ActiveLink = ({ children, router, href }) => {
     const inView = {
-        borderBottom: router.pathname === href ? 'solid 4px blueviolet': 'transparent',
+        borderBottom: router.pathname === href ? 'solid 4px #1CA9F9': 'transparent',
 
     }
 
