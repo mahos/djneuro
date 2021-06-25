@@ -14,7 +14,8 @@ const layoutStyle = {
 const generalStyle = {
     fontFamily: 'sans-serif',
     backgroundColor: '#FCFCFC',
-    color: '#1A1A1A'
+    color: '#1A1A1A',
+    lineHeight: '1.6rem'
 }
 
 const Layout = props => (

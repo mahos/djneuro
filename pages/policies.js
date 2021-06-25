@@ -14,7 +14,7 @@ export default function Policies() {
           </p>
         </div >
       </div>
-      <style jsx>{`{
+      <style jsx>{`
           .policies-section {
 
           }

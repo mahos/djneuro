@@ -19,8 +19,9 @@ const About = () => (
             <div className="cell-item">
                 <div className="cell-content">
                     <h4 className="section-title">Committed to data integrity and reproducibility</h4>
-                    <p>DataJoint Neuro works closely with the <a href="https://www.imagwiki.nibib.nih.gov/working-groups/other-nih-brain-initiative-u19-data-science-consortium">NIH 
-                    BRAIN Initiative U19 Data Science Consortium</a> and <a href="https://www.nwb.org/">Neurodata Without Borders</a> to ensure 
+                    <p>DataJoint Inc. works closely with the NIH 
+                    BRAIN Initiative  <a href="https://www.imagwiki.nibib.nih.gov/working-groups/other-nih-brain-initiative-u19-data-science-consortium">
+                    U19 Data Science Consortium</a> and <a href="https://www.nwb.org/">Neurodata Without Borders</a> to ensure 
                     smooth integration with the NIH BRAIN Initiative Informatics infrastructure.
                     </p> 
                 </div>
@@ -36,7 +37,7 @@ const About = () => (
             <div className="cell-item">
                 <div className="cell-content">
                     <h4 className="section-title">We work with top neuroscience labs worldwide</h4>
-                    <p>We help neuroscientists use DataJoint to accelerate their research.  DataJoint Neuro provides solutions for project planning, 
+                    <p>We help neuroscientists use DataJoint to accelerate their research.  DataJoint Inc. provides solutions for project planning, 
                         training, data infrastructure, as well as tools and resources for maximizing the productivity of individual labs and large 
                         consortia. We lead in providing comprehensive solutions for custom scientific data pipelines in neuroscience.
                     </p>
@@ -54,7 +55,7 @@ const About = () => (
                 <div className="cell-content">
                     <h4 className="section-title">Bringing scientific rigor to AI research</h4>
                     <p>DataJoint has also gained popularity in AI research as a data framework for model selection and parameter optimization. DataJoint 
-                        Neuro offers expertise and solutions to support AI research.
+                        Inc. offers expertise and solutions to support AI research.
                     </p>
                 </div>
             </div >
@@ -66,12 +67,41 @@ const About = () => (
             <div className="cell-item">
                 <div className="cell-content">
                     <h4 className="section-title">Lab grown</h4>
-                    <p>DataJoint Neuro is run by Vathes LLC based in Houston, Texas. Vathes LLC spun off from the Lab of Andreas Tolias at Baylor
-                        College of Medicine in 2017 after receiving initial SBIR funding from DARPA.
+                    <p>DataJoint Inc. is based in Houston, Texas. DataJoint spun off from the Lab of Andreas Tolias at Baylor College of Medicine 
+                      in 2017 after receiving initial SBIR funding from DARPA.
                     </p>
                 </div>
             </div >
         </div>
+        <section className="about-history-section">
+          <div className="container">
+            <div className="history-stages">
+              <img src="/static/images/arrow-light.svg" className="arrow" />
+              <div className="timeline">
+                <div className="stage">
+                  <img src="/static/images/logo/vathes-logo.png" className="company-logo" />
+                  <p className="history-text">
+                  DataJoint Inc, originally named Vathes LLC, was founded in 2016, to provide support for and build data hosting 
+                  service based on DataJoint enabling distributed teams of scientists to work with the same data transparently and efficiently.
+                  </p>
+                </div>
+                <div className="stage">
+                  <img src="/static/images/logo/datajoint-neuro-logo.png" className="company-logo" />
+                  <p className="history-text">
+                  In 2019, Vathes began business as DataJoint Neuro, providing services specifically for neuroscience laboratories to 
+                  configure their data processing pipelines, develop custom interfaces, and publish data.
+                  </p>
+                </div>
+                <div className="stage">
+                  <img src="/static/images/logo/datajoint-logo.png" className="company-logo" />
+                  <p className="history-text">
+                  In 2021, DataJoint Neuro rebranded itself to DataJoint Inc. and will continue to offer services around DataJoint software and more.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <style jsx>{`
             .about-grid-row {
                 display: grid;
@@ -103,8 +133,13 @@ const About = () => (
                   margin: 0;
                 }
 
-            .cell-content p {
-                line-height: 1.6rem;
+            .cell-content p a {
+                text-decoration: none;
+                color: #3293F1;
+            }
+
+            .cell-content p a:hover {
+                color: #1CA9F9;
             }
 
             .lab-img-container {
@@ -116,12 +151,66 @@ const About = () => (
             .lab-img-container img {
                 width: 100%;
                 border-radius: 50%;
-                //opacity: 50%;
             }
 
             hr.row-divider {
                 width: 60%;
                 margin: 0 auto;
+                color: lightgray;
+            }
+
+            .about-history-section {
+              width: 100%;
+              position: relative;
+              background-image: url('/static/images/title-history.svg');
+              background-attachment: fixed;
+              background-position: 90% 35%;
+              background-repeat: no-repeat;
+              background-size: 40%;
+            }
+
+            .about-history-section .container {
+              width: 90%;
+              margin: 0 auto;
+              position: relative;
+              border-top: 1px solid lightgray;
+              padding: 56px 0;
+            }
+
+            .history-stages {
+              position: relative;
+              z-index: 20;
+              margin-top: 6%;
+              
+            }
+
+            .history-stages img.arrow {
+              position: absolute;
+              width: 90%;
+              margin-left: 5%;
+              z-index: 10;
+            }
+
+            .history-stages .timeline {
+              display: flex;
+              position: relative;
+              z-index: 20;
+            }
+
+            .timeline .stage {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 30%;
+              margin: 5%;
+            }
+
+            .timeline .stage .company-logo {
+              height: 64px;
+            }
+
+            .timeline .stage .history-text {
+              margin-top: 48px;
             }
 
             @media (max-width: 1440px) {
