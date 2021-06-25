@@ -27,7 +27,7 @@ export default function Resources() {
                     <div className="resource-image">
                       <img className="user-account" src="/static/images/user-management-image.svg" />
                     </div>
-                    <p className="resource-detail">User <a href="https://accounts.datajoint.io" target="_blank">account management</a> for all users of DataJoint Playground, as well as existing DataJoint 
+                    <p className="resource-detail">User <a href="https://accounts.datajoint.io" target="_blank">account management</a> for all users of Data&shy;Joint Playground, as well as existing DataJoint 
                     users, can be found <a href="https://accounts.datajoint.io" target="_blank">here</a>.</p>
                   </div>
                 </div>
@@ -80,7 +80,6 @@ export default function Resources() {
 
                 .resource-image .demo {
                   width: 76%;
-                  height: 70%;
                   position: absolute;
                 }
 
