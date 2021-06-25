@@ -2,77 +2,81 @@ import Layout from '../components/Layout.js';
 
 const About = () => (
     <Layout>
-        <div className="about-grid-row">
-            <div className="cell-item">
-                <div className="cell-content">
-                    <h4 className="section-title">The DataJoint experts</h4>
-                    <p>Our team is the principal developer of <a href="https://datajoint.io">DataJoint®</a> — a free, open-source framework 
-                    for shared scientific databases and computational data pipelines programmed and accessed directly from MATLAB and Python. 
-                    </p>
+        <section className="about-datajoint">
+          <div className="container">
+            <div className="about-grid-row">
+                <div className="cell-item">
+                    <div className="cell-content">
+                        <h4 className="section-title">The DataJoint experts</h4>
+                        <p>Our team is the principal developer of <a href="https://datajoint.io">DataJoint®</a> — a free, open-source framework 
+                        for shared scientific databases and computational data pipelines programmed and accessed directly from MATLAB and Python. 
+                        </p>
+                    </div>
+                </div>
+                <div className="cell-item">
+                    <div className="lab-img-container">
+                        <img src="/static/images/artwork/above_white_matter.jpg" />
+                    </div>
+                </div>
+                <div className="cell-item">
+                    <div className="cell-content">
+                        <h4 className="section-title">Committed to data integrity and reproducibility</h4>
+                        <p>DataJoint Inc. works closely with the NIH 
+                        BRAIN Initiative  <a href="https://www.imagwiki.nibib.nih.gov/working-groups/other-nih-brain-initiative-u19-data-science-consortium">
+                        U19 Data Science Consortium</a> and <a href="https://www.nwb.org/">Neurodata Without Borders</a> to ensure 
+                        smooth integration with the NIH BRAIN Initiative Informatics infrastructure.
+                        </p> 
+                    </div>
+                </div >
+            </div>
+            <hr className="row-divider" />
+            <div className="about-grid-row flip">
+                <div className="cell-item">
+                    <div className="lab-img-container">
+                        <img src="/static/images/artwork/blue-cherry-flicker.gif" />
+                    </div>
+                </div>
+                <div className="cell-item">
+                    <div className="cell-content">
+                        <h4 className="section-title">We work with top neuroscience labs worldwide</h4>
+                        <p>We help neuroscientists use DataJoint to accelerate their research.  DataJoint Inc. provides solutions for project planning, 
+                            training, data infrastructure, as well as tools and resources for maximizing the productivity of individual labs and large 
+                            consortia. We lead in providing comprehensive solutions for custom scientific data pipelines in neuroscience.
+                        </p>
+                    </div>
+                </div>
+                <div className="cell-item">
+                    <div className="lab-img-container">
+                        <img src="/static/images/artwork/3P_surface_bright.jpg" />
+                    </div>
                 </div>
             </div>
-            <div className="cell-item">
-                <div className="lab-img-container">
-                    <img src="/static/images/artwork/above_white_matter.jpg" />
+            <hr className="row-divider" />
+            <div className="about-grid-row">
+                <div className="cell-item">
+                    <div className="cell-content">
+                        <h4 className="section-title">Bringing scientific rigor to AI research</h4>
+                        <p>DataJoint has also gained popularity in AI research as a data framework for model selection and parameter optimization. DataJoint 
+                            Inc. offers expertise and solutions to support AI research.
+                        </p>
+                    </div>
+                </div >
+                <div className="cell-item">
+                    <div className="lab-img-container">
+                        <img src="/static/images/artwork/pipette.png" />
+                    </div>
                 </div>
+                <div className="cell-item">
+                    <div className="cell-content">
+                        <h4 className="section-title">Lab grown</h4>
+                        <p>DataJoint Inc. is based in Houston, Texas. DataJoint spun off from the Lab of Andreas Tolias at Baylor College of Medicine 
+                          in 2017 after receiving initial SBIR funding from DARPA.
+                        </p>
+                    </div>
+                </div >
             </div>
-            <div className="cell-item">
-                <div className="cell-content">
-                    <h4 className="section-title">Committed to data integrity and reproducibility</h4>
-                    <p>DataJoint Inc. works closely with the NIH 
-                    BRAIN Initiative  <a href="https://www.imagwiki.nibib.nih.gov/working-groups/other-nih-brain-initiative-u19-data-science-consortium">
-                    U19 Data Science Consortium</a> and <a href="https://www.nwb.org/">Neurodata Without Borders</a> to ensure 
-                    smooth integration with the NIH BRAIN Initiative Informatics infrastructure.
-                    </p> 
-                </div>
-            </div >
-        </div>
-        <hr className="row-divider" />
-        <div className="about-grid-row flip">
-            <div className="cell-item">
-                <div className="lab-img-container">
-                    <img src="/static/images/artwork/blue-cherry-flicker.gif" />
-                </div>
-            </div>
-            <div className="cell-item">
-                <div className="cell-content">
-                    <h4 className="section-title">We work with top neuroscience labs worldwide</h4>
-                    <p>We help neuroscientists use DataJoint to accelerate their research.  DataJoint Inc. provides solutions for project planning, 
-                        training, data infrastructure, as well as tools and resources for maximizing the productivity of individual labs and large 
-                        consortia. We lead in providing comprehensive solutions for custom scientific data pipelines in neuroscience.
-                    </p>
-                </div>
-            </div>
-            <div className="cell-item">
-                <div className="lab-img-container">
-                    <img src="/static/images/artwork/3P_surface_bright.jpg" />
-                </div>
-            </div>
-        </div>
-        <hr className="row-divider" />
-        <div className="about-grid-row">
-            <div className="cell-item">
-                <div className="cell-content">
-                    <h4 className="section-title">Bringing scientific rigor to AI research</h4>
-                    <p>DataJoint has also gained popularity in AI research as a data framework for model selection and parameter optimization. DataJoint 
-                        Inc. offers expertise and solutions to support AI research.
-                    </p>
-                </div>
-            </div >
-            <div className="cell-item">
-                <div className="lab-img-container">
-                    <img src="/static/images/artwork/pipette.png" />
-                </div>
-            </div>
-            <div className="cell-item">
-                <div className="cell-content">
-                    <h4 className="section-title">Lab grown</h4>
-                    <p>DataJoint Inc. is based in Houston, Texas. DataJoint spun off from the Lab of Andreas Tolias at Baylor College of Medicine 
-                      in 2017 after receiving initial SBIR funding from DARPA.
-                    </p>
-                </div>
-            </div >
-        </div>
+          </div>
+        </section>
         <section className="about-history-section">
           <div className="container">
             <div className="history-stages">
@@ -103,11 +107,17 @@ const About = () => (
           </div>
         </section>
         <style jsx>{`
+            section.about-datajoint .container {
+                width: 80%;
+                margin: 0 auto;
+                padding: 5% 0;
+            }
             .about-grid-row {
+                position: relative;
                 display: grid;
                 grid-template-columns: 1.2fr 1fr 1.2fr;
-                width: 80%;
-                margin: 5% auto;
+                width: 100%;
+                padding: 5% 0;
             }
 
             .about-grid-row.flip {
@@ -171,7 +181,7 @@ const About = () => (
             }
 
             .about-history-section .container {
-              width: 90%;
+              width: 80%;
               margin: 0 auto;
               position: relative;
               border-top: 1px solid lightgray;
@@ -196,6 +206,7 @@ const About = () => (
               display: flex;
               position: relative;
               z-index: 20;
+              justify-content: space-between;
             }
 
             .timeline .stage {
@@ -203,7 +214,7 @@ const About = () => (
               flex-direction: column;
               align-items: center;
               width: 30%;
-              margin: 5%;
+              padding: 0 24px;
             }
 
             .timeline .stage .company-logo {

@@ -17,84 +17,72 @@ class Navigation extends React.Component {
         return (
             <div>
                 <nav>
-                    <div className="navLeft">
+                    <div className="nav-left">
                         <Link href="/">
-                            <a className="linkHomeStyle">
-                                 <img className="linkLogoStyle" src="/static/images/logo/djneuroLogo.png" />
+                            <a className="link-home">
+                                 <img className="home-logo" src="/static/images/logo/datajoint-logo-white.png" />
                             </a>
                         </Link>
                     </div>
-                    <div className={`navRight ${this.state.menuOpen ? 'visible': 'test'}`} onClick={() => this.setState({menuOpen: !this.state.menuOpen})}>
-                        <div className="linkWrap">
+                    <div className={`nav-right ${this.state.menuOpen ? 'visible': 'invisible'}`} onClick={() => this.setState({menuOpen: !this.state.menuOpen})}>
+                        <div className="link-wrap">
                             <ActiveLink href="/about">About</ActiveLink>
                         </div>
-                        <div className="linkWrap">
+                        <div className="link-wrap">
                             <ActiveLink href="/services">SciOps</ActiveLink>
                         </div>
-                        <div className="linkWrap">
+                        <div className="link-wrap">
                             <ActiveLink href="/resources">Resources</ActiveLink>
                         </div>
-                        <div className="linkWrap">
+                        <div className="link-wrap">
                             <ActiveLink href="/news">News</ActiveLink>
                         </div>
                     </div>
                 </nav>
                 <style jsx>{`
                     nav {
-                        position: relative;
+                        position: fixed;
                         display: inline-block;
                         width: 100%;
-                        background: linear-gradient(#0f040f, #0f040f, #001226);
-                        padding: 0;
+                        background: linear-gradient(to right bottom, #1A1A1A, #050E27 30%, rgba(15, 53, 149, 0.8) 90%);
+                        padding: 4px 2.5%;
+                        box-sizing: border-box;
+                        height: 64px;
+                        z-index: 999;
                     }
-                   .navLeft {
+                   .nav-left {
                        position: relative;
                        float: left;
                    }
-                   .navRight {
+                   .nav-right {
                        position: relative;
-                       float: right;
-                       top: 42px;
                        display: flex;
-                       flex-direction: row;
+                       float: right;
+                       margin-top: 16px;
                    }
-                   .linkHomeStyle {
+                   .link-home {
                        border-bottom: none;
                        padding-bottom: 0;
                    }
-                   .linkLogoStyle {
-                       height: 65px;
-                       display: inline-block;
+                   .home-logo {
+                      position: relative;
+                      height: 46px;
+                      margin-top: 4px;
                    }
-                    // a {
-                    //     color: #DDD;
-                    //     text-decoration: none;
-                    //     padding: 15px 10px 9px 10px;
-                    // }
 
-                    // a.linkStyle {
-                    //     margin-right: 8px;
-                    // }
-
-                    a.inView {
-                        border-bottom: solid 4px #1CA9F9; // lightest shade of revamped dj logo
-                        position: relative;
-                        z-index: 100;
-                    }
-                    .linkWrap {
-                        padding: 15px 0px 9px 7px;
-                        margin-top: -15px;
+                    .link-wrap {
+                        //border: 1px solid red;
                     }
 
-                    .linkWrap:hover { 
+                    .link-wrap:hover { 
                         border-bottom: solid 4px #1CA9F9; // lightest shade of revamped dj logo
                     }
 
                     @media(max-width: 768px) {
-                        .navRight .linkWrap {
+                        .nav-right .link-wrap {
                             display: none;
                         }
-                        .navRight:before {
+                        .nav-right:before {
                             content: "\u2261";
                             font-size: 50px;
                             color: white;
@@ -102,7 +90,7 @@ class Navigation extends React.Component {
                             margin: 0 15px;
                             transform: translateY(-60%);
                         }
-                        .navRight.visible {
+                        .nav-right.visible {
                             display: block;
                             position: absolute;
                             z-index: 500;
@@ -114,12 +102,12 @@ class Navigation extends React.Component {
                             text-align: center;
                             padding-left: 25px;
                         }
-                        .navRight.visible .linkWrap {
+                        .nav-right.visible .link-wrap {
                             display: block;
                             float: bottom;
                             padding: 20px 0;
                         }
-                        .navRight.visible .linkWrap:hover {
+                        .nav-right.visible .link-wrap:hover {
                             border-bottom: none;
                             border-left: 10px solid #0f040f;
                         }

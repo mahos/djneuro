@@ -40,7 +40,7 @@ export default function Resources() {
                   position: relative;
                   width: 80%;
                   margin: 0 auto;
-                  padding: 10%;
+                  padding: 15% 10% 10% 10%;
                 }
 
                 section .section-title {

@@ -8,7 +8,7 @@ const layoutStyle = {
     height: 'fit-content',
     minHeight: '100vh',
     position: 'relative',
-    fontSize: '14pts'
+    fontSize: '12pt'
 };
 
 const generalStyle = {

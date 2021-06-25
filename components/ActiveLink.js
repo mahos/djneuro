@@ -2,7 +2,7 @@ import { withRouter } from 'next/router'
 
 const ActiveLink = ({ children, router, href }) => {
     const inView = {
-        borderBottom: router.pathname === href ? 'solid 4px #1CA9F9': 'transparent',
+        borderBottom: router.pathname === href ? 'solid 4px #1CA9F9': 'solid 4px transparent',
 
     }
 
@@ -13,19 +13,19 @@ const ActiveLink = ({ children, router, href }) => {
 
     return (
         <div>
-            <a className="linkStyle" href={href} onClick={handleClick} style={inView}>
+            <a className="link-style" href={href} onClick={handleClick} style={inView}>
                 {children}
             </a>
             <style jsx>{`
-                a.linkStyle {
+                a.link-style {
                     color: #DDD;
                     text-decoration: none;
-                    padding: 15px 10px 9px 10px;
-                    margin-right: 8px;
+                    padding: 0 2px 4px 2px;
+                    margin: 0 8px;
                 }
-                // a:hover {
-                //     border-bottom: solid 4px black;
-                // }
+                a.link-style:hover {
+                    // border-bottom: solid 4px green;
+                }
             `}</style>
         </div>
     )

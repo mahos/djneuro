@@ -6,11 +6,11 @@ export default() => (
         <Head>
             {/* <meta name="robots" content="noindex" /> */}
             <meta name="keywords" content="DataJoint, datajoint neuro, DataJoint neuro, datajoint, data pipeline, data, neuroscience, AI, machine learning" />
-            <meta name="description" content="DataJoint NEURO enables research teams to design scientific 
+            <meta name="description" content="DataJoint Inc. enables research teams to design scientific 
                         databases and computational pipelines by providing support, resources, and services." />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta charSet="utf-8" />
-            <title>DataJoint NEURO</title>
+            <title>DataJoint Inc.</title>
 
             {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162022587-2"></script>
