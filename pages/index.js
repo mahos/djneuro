@@ -185,7 +185,7 @@ class Index extends React.Component {
                 section .section-title {
                   font-weight: 600;
                   font-style: italic;
-                  color: #4977ED;
+                  color: #0F3595;
                   margin: 0;
                 }
 

@@ -39,15 +39,15 @@ const Footer = () => (
             <div className="footer-column">
               <h4 className="column-header">About Us</h4>
               <ul className="column-list">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Our Team</a></li>
-                <li><a href="#">Policies</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/team">Our Team</a></li>
+                <li><a href="/policies">Policies</a></li>
               </ul>
             </div>
             <div className="footer-column">
               <h4 className="column-header">Services</h4>
               <ul className="column-list">
-                <li><a href="#">SciOps</a></li>
+                <li><a href="/services">SciOps</a></li>
               </ul>
             </div>
             <div className="footer-column">
@@ -61,13 +61,13 @@ const Footer = () => (
             <div className="footer-column">
               <h4 className="column-header">News</h4>
               <ul className="column-list">
-                <li><a href="#">News & Press Release</a></li>
+                <li><a href="/news">News & Press Release</a></li>
               </ul>
             </div>
             <div className="footer-column">
               <h4 className="column-header">Career</h4>
               <ul className="column-list">
-                <li><a href="#">Current Openings</a></li>
+                <li><a href="/jobs">Current Openings</a></li>
               </ul>
             </div>
           </div>

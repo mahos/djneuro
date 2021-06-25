@@ -5,7 +5,6 @@ import Footer from './Footer';
 const layoutStyle = {
     padding: '0',
     margin: '0',
-    // textAlign: 'center',
     height: 'fit-content',
     minHeight: '100vh',
     position: 'relative',
@@ -13,7 +12,9 @@ const layoutStyle = {
 };
 
 const generalStyle = {
-    fontFamily: 'sans-serif'
+    fontFamily: 'sans-serif',
+    backgroundColor: '#FCFCFC',
+    color: '#1A1A1A'
 }
 
 const Layout = props => (
