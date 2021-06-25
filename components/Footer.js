@@ -120,6 +120,7 @@ const Footer = () => (
 
         ul.column-list li {
           margin-bottom: 16px;
+          line-height: 1rem;
         }
 
         ul.column-list li a img.ext-link-icon {

@@ -106,12 +106,13 @@ const About = () => (
             .about-grid-row {
                 display: grid;
                 grid-template-columns: 1.2fr 1fr 1.2fr;
-                width: 90%;
+                width: 80%;
                 margin: 5% auto;
             }
 
             .about-grid-row.flip {
                 grid-template-columns: 1fr 1.2fr 1fr;
+                align-items: center;
             }
 
             .about-grid-row .cell-item {
@@ -119,11 +120,11 @@ const About = () => (
             }
 
             .about-grid-row .cell-item .cell-content {
-                margin-top: 20%;
+                margin-top: 14%;
             }
 
             .about-grid-row.flip .cell-item .cell-content {
-                margin-top: 16%;
+                margin-top: 0;
             }
 
             .cell-content .section-title {
@@ -154,7 +155,7 @@ const About = () => (
             }
 
             hr.row-divider {
-                width: 60%;
+                width: 54%;
                 margin: 0 auto;
                 color: lightgray;
             }
