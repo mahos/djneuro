@@ -162,9 +162,7 @@ const Team = () => (
             .member-text {
               text-align: center;
             }
- 0;
-            }
-
+            
             .member-text .member-name {
               margin: 8px 0;
             }

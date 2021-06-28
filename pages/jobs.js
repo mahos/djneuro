@@ -18,15 +18,12 @@ class Jobs extends React.Component {
     }
 
     togglePosition(id) {
-        console.log('toggline position for: ', id)
         if (id == 1) {
-            console.log('changing state 1')
             this.setState(() => {
                 return {position1selected: true, 
                         position2selected: false}
             });
         } else if (id == 2) {
-            console.log('changing state 2')
             this.setState(() => {
                 return {position1selected: false, 
                         position2selected: true}
@@ -39,27 +36,32 @@ class Jobs extends React.Component {
         return (
             <Layout>
 
-            <div style={background}>
-                <h2>Career Opportunities</h2>
-                    <div className="positionHeader">
-                    <h3>Open Positions: <br />
-                    {/* <button className="togglePosition" onClick={() => this.togglePosition(1)}>Software Engineer</button>&nbsp;&nbsp; */}
-                    {/* <button className="togglePosition" onClick={()=>this.togglePosition(2)}>Data Scientist</button> */}
-                    </h3>
-                </div>
-                <div className="job-section">
-                    <p className="job-description">
-                        <b>The company:</b><br />Vathes LLC (doing business as DataJoint Neuro) is a data solutions company supporting groundbreaking research in neuroscience and 
+            <section className="career">
+                <div className="container top">
+                  <div className="top-area">
+                    <h4 className="section-title">Company</h4>
+                        {/* <button className="togglePosition" onClick={() => this.togglePosition(1)}>Software Engineer</button>&nbsp;&nbsp; */}
+                        {/* <button className="togglePosition" onClick={()=>this.togglePosition(2)}>Data Scientist</button> */}
+
+                    <p className="company-description">
+                        DataJoint Inc. is a data solutions company supporting groundbreaking research in neuroscience and 
                         machine learning. Our mission is to enable research teams to solve the most complex problems in the field by bringing scientific 
                         rigor and clarity to big data and computations. We collaborate with top neuroscience and machine learning labs all over the world. 
                         We are a team of passionate, self-driven neuroscientists, data scientists, and software engineers, striving to provide best-in-class 
-                        solutions for data-intensive scientific workflows. Our work culture is fast-paced, highly collaborative and encourages open 
+                        solutions for data-intensive scientific workflows. 
+                        <br /><br />
+                        Our work culture is fast-paced, highly collaborative and encourages open 
                         communication, innovation, and creative solutions. 
                     </p>
-
+                  </div>
+                  <div className="office-image-area">
+                    <img className="office-image empty" src="/static/images/office.png" />
+                    <img className="office-image filled" src="/static/images/team/office-scene2.jpg" />
+                  </div>
                 </div>
-
-
+                <div className="container bottom">
+                  <h4 className="section-title">Open Positions</h4>
+                    <p>There are currently no open positions available.</p>
                 {/* <div className="position1" style={this.state.position1selected ? {display: 'block'} : {display: 'none'}}>
                     
                     <div className="job-section">
@@ -200,139 +202,80 @@ class Jobs extends React.Component {
                         </p>
                     </div>
                 </div> */}
-            </div >
+
+                </div>
+            </section>
     
             <style jsx>{`
-                a {
-                    text-decoration: none;
-                    color: #CAE7FF; // light bluish grey
+                section.career {
+                  width: 100%;
+                  position: relative;
+                  background-image: url('/static/images/title-career.svg');
+                  background-attachment: fixed;
+                  background-position: 95% 12%;
+                  background-repeat: no-repeat;
+                  background-size: 40%;
                 }
 
-                a:hover {
-                    color: #41B0F7 ; 
+                section.career .container {
+                  width: 80%;
+                  margin: 0 auto;
                 }
 
-                div {
-                    background-repeat: no-repeat;
-                    color: #E1EBF7;  // blueish muted white
-                    background-image: url("/static/images/artwork/pipette.png");
-                    background-attachment: fixed;
-                    background-position: top left;
+                section.career .container.top {
+                  padding: 15% 0 0;
+                  display: flex;
                 }
 
-                div.job-section > h3 {
-                    text-align: left;
-                    padding-left: 15%;
+                section.career .container.bottom {
+                  padding: 0 0 5%;
                 }
 
-                h2 {
-                    font-size: 2.2rem;
-                    m
-                }
-                h3 {
-                    font-size: 1.7rem;
-                }
-
-                .positionHeader {
-                    text-align: left;
-                    padding-left: 15%;
-                }
-                button.togglePosition {
-                    padding: 30px 60px;
-                    width: 420px;
-                    font-size: 2.0rem;
-                    font-weight: 600;
-                    color: white;
-                    background-color: blueviolet;
-                    margin: 8px 15px 0;
-                    border-radius: 8px;
-                    cursor: pointer;
+                section.career .section-title {
+                  font-weight: 600;
+                  font-style: italic;
+                  color: #0F3595;
+                  margin: 0;
                 }
 
-                p.job-description {
-                    text-align: left;
-                    padding: 5px 15% 2%;
-                    font-size: 18px;
-                    line-height: 1.9rem;
+                .career .container .top-area {
+                  width: 50%;
+                  position: relative;
                 }
 
-                p.job-description.list-bottom {
-                    padding: 5px 15%;
-                    margin-top: -1em;
+                .career .container .top-area .company-description {
+                  width: 90%;
                 }
 
-                button.apply-button {
-                    padding: 30px 60px;
-                    background-color: blueviolet;
-                    color: white;
-                    font-size: 1.3rem;
-                    margin-top: 2%;
-                    margin-bottom: 30px;
-                    border-radius: 5px;
-                    border: 0px;
+                .office-image-area {
+                  width: 50%;
+                  position: relative;
+                  min-height: 420px;
                 }
 
-                button.apply-button:hover {
-                    background-color: #701ac0; 
-                    cursor: pointer;
+                .office-image-area .office-image {
+                  border-radius: 50%;
+                }
+
+                .office-image.empty {
+                  width: 300px;
+                }
+
+                .office-image.filled {
+                  width: 400px;
+                  position: absolute;
+                  right: 0;
+                  bottom: 0;
                 }
 
                 @media (max-width: 1440px) {
                     
                 }
                 @media (max-width: 768px) {
-                    h3 {
-                        font-size: 1.3rem;
-                    }
-                    div.job-section > h3 {
-                        text-align: left;
-                        padding-left: 7%;
-                    }
-
-                    p.job-description {
-                        font-size: 1rem;
-                        line-height: 1.9rem;
-                        padding: 5px 7% 1.5%;
-                    }
-                    p.job-description.list-bottom {
-                        padding: 5px 7%;
-                    }
-                    button.togglePosition {
-                        padding: 20px 40px;
-                        width: 325px;
-                        font-size: 1.6rem;
-                    }
-                    .positionHeader {
-                        padding-left: 7%;
-                    }
+                   
                 }
                 @media (max-width: 480px) {
-                    h3 {
-                        font-size: 1.2rem;
-                    }
-                    div.job-section > h3 {
-                        text-align: left;
-                        padding-left: 3%;
-                    }
-
-
-                    p.job-description {
-                        font-size: 0.95rem;
-                        line-height: 1.5rem;
-                        padding: 5px 3% 1%;
-                    }
-                    p.job-description.list-bottom {
-                        padding: 5px 3%;
-                    }
-                    button.togglePosition {
-                        padding: 15px 30px;
-                        width: 300px;
-                        font-size: 1.4rem;
-                        margin: 0;
-                    }
-                    .positionHeader {
-                        padding-left: 3%;
-                    }
+                    
                 }
 
             `}</style>
