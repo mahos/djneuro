@@ -2,6 +2,7 @@ import Layout from '../components/Layout.js';
 
 const Team = () => (
     <Layout>
+        <div className="section-wrapper">
         <section className="team-group">
           <img className="group-photo" src="/static/images/team/group2.jpg" />
         </section>
@@ -100,7 +101,16 @@ const Team = () => (
                 </div>
             </div>
           </section>
+          </div>
         <style jsx>{`
+            .section-wrapper {
+              background-image: url('/static/images/title-team.svg');
+              background-attachment: fixed;
+              background-position: 94.5% 12%;
+              background-repeat: no-repeat;
+              background-size: 40%;
+            }
+        
             section.team-group,
             section.team-titled {
               width: 100%;
@@ -112,14 +122,6 @@ const Team = () => (
               font-style: italic;
               color: #0F3595;
               margin: 0;
-            }
-
-            .team-group {
-              background-image: url('/static/images/title-team.svg');
-              background-attachment: fixed;
-              background-position: 96% 12%;
-              background-repeat: no-repeat;
-              background-size: 40%;
             }
 
             .team-group img.group-photo {
@@ -162,7 +164,7 @@ const Team = () => (
             .member-text {
               text-align: center;
             }
-            
+
             .member-text .member-name {
               margin: 8px 0;
             }
