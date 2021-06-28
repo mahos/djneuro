@@ -138,11 +138,11 @@ const About = () => (
             }
 
             .cell-content .section-title {
-                  font-weight: 600;
-                  font-style: italic;
-                  color: #0F3595;
-                  margin: 0;
-                }
+              font-weight: 600;
+              font-style: italic;
+              color: #0F3595;
+              margin: 0;
+            }
 
             .cell-content p a {
                 text-decoration: none;
