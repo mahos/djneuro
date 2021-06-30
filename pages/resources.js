@@ -40,7 +40,7 @@ export default function Resources() {
                   position: relative;
                   width: 80%;
                   margin: 0 auto;
-                  padding: 15% 10% 10% 10%;
+                  padding: 180px 10% 10% 10%;
                 }
 
                 section .section-title {
@@ -105,19 +105,50 @@ export default function Resources() {
                   color: #1CA9F9;
                 }
 
+                @media (min-width: 2521px) {
+                  .resource-image {
+                    width: 60%;
+                    margin: 0 auto 24px;
+                  }  
+                }
+
+                @media (min-width: 1550px) and (max-width: 2520px) {
+                  .resource-image {
+                    width: 70%;
+                    margin: 0 auto 12px;
+                  }  
+                }
+
                 @media (max-width: 1024px) {
-                    
+                  section.resources-section .container {
+                    padding: 120px 10% 10% 10%;
+                  }
+
+                  .resources-listing {
+                    grid-template-columns: 1fr 1fr;
+                  }
                 }
                
-                @media (max-width: 768px) {
-                  
+                @media (max-width: 640px) {
+                  .resources-listing {
+                    grid-template-columns: 1fr;
+                    margin-top: 12px;
 
-                        
+                  }    
+                  .resource-card {
+                    border-bottom: 1px solid lightgrey;
+                  }
+
+                  .resource-card:last-of-type {
+                    border-bottom: none;
+                  }
+
+                  .resource-image {
+                    width: 70%;
+                    margin: 0 auto 12px;
+                  }   
                 }
 
-                @media (max-width: 480px) {
-                 
-                }
             }
             `}</style>
         </Layout>
