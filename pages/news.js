@@ -423,6 +423,7 @@ class BlogIndex extends React.Component {
                         position: relative;
                         border: 1px solid lightgrey;
                         border-radius: 2px;
+                        width: 100%;
                         margin: 0 auto;
                         padding: 24px;
                         display: flex;

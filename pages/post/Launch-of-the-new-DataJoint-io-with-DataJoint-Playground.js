@@ -49,48 +49,56 @@ export default class extends React.Component {
         if (this.props.content) {
             return (
                 <Layout>
-                    <div className="postContainer">
-                        <br />
-                        <h3>{this.props.data.title}</h3>
-                        {/* <i>{`${this.props.data.dateOnly} | Tags: ${this.props.data.tags} | Categories: ${this.props.data.categories}`}</i> */}
-                        <i>{`${this.props.data.dateOnly}`}</i>
-                        <div className="postContentWrapper">
-                            <ReactMarkdown source={this.props.content}
-                                escapeHtml={false}
-                                renderers={{
-                                    image: props => (
-                                        <PostImage {...props} />
-                                    )
-                                }} />
-                        </div>
-                    </div>
+                    <section className="post">
+                      <div className="post-container">
+                          <div className="post-date">{`${this.props.data.dateOnly}`}</div>
+                          <div className="post-title">{this.props.data.title}</div>
+                          {/* <i>{`${this.props.data.dateOnly} | Tags: ${this.props.data.tags} | Categories: ${this.props.data.categories}`}</i> */}
+                          
+                          <div className="post-content-wrapper">
+                              <ReactMarkdown source={this.props.content}
+                                  escapeHtml={false}
+                                  renderers={{
+                                      image: props => (
+                                          <PostImage {...props} />
+                                      )
+                                  }} 
+                              />
+                          </div>
+                      </div>
+                    </section>
                     <style jsx>{`
-                    .postContainer {
-                        padding: 10px 40px 8% 40px;
-                        background-color: white;
-                        text-align: left;
+                    section.post {
+                        width: 100%;
+                        position: relative;
                     }
 
-                    .postContentWrapper {
-                        width: 66%;
-
+                    .post-container {
+                        width: 80%;
+                        margin: 0 auto;
+                        padding: 10% 0 5%;
                     }
+
+                    .post-date {
+                      font-size: 1rem;
+                      margin-bottom: 8px;
+                      color: slategrey;
+                    }
+                    .post-title {
+                      font-weight: 600;
+                      font-size: 1.4rem;
+                      margin-bottom: 16px;
+                    }
+
                     @media (max-width: 1024px) {
                         
                     }
                     @media (max-width: 768px) {
-                        .postContentWrapper {
-                            width: 95%;
-                            text-align: left;
-                            padding-bottom: 4%;
-                        }
+                        
                         
                     }
                     @media (max-width: 480px) {
-                        .postContentWrapper {
-                            width: 100%;
-                            padding-bottom: 7%;
-                        }
+                        
                     }
 =
                 `}</style>
@@ -99,16 +107,16 @@ export default class extends React.Component {
         } else {
             return (
                 <Layout>
-                    <div className="postContainer">
-                        <br />
+                    <div className="post-container">
                         <h3>Under Construction</h3>
 
                     </div>
                     <style jsx>{`
-                        .postContainer {
-                            padding: 10px 40px 8% 40px;
-                            background-color: white;
-                            text-align: left;
+                        .post-container {
+                            width: 80%;
+                            position: relative;
+                            margin: 0 auto;
+                            padding-top: 10%;
                         }
 
     =
