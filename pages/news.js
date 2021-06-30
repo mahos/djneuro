@@ -39,6 +39,11 @@ class TopPostHeaderImage extends React.Component {
                         width: 100%;
                         display: block;
                     }
+                    @media (max-width: 640px) {
+                      .top-post-header .image-container {
+                        width: 100%;
+                      }   
+                    }
                 `}</style>
             </div>
         )
@@ -63,6 +68,12 @@ class TopPostText extends React.Component {
                         -webkit-box-orient: vertical;
                         width: 90%;
                         margin-left: 10%;
+                    }
+                    @media (max-width: 640px) {
+                      .top-post-text-content {
+                        margin-left: 0;
+                        width: 100%;
+                      }
                     }
                 `}</style>
             </div>
@@ -107,6 +118,11 @@ class PostHeaderImage extends React.Component {
                       position: relative;
                       width: 100%;
                       display: block;
+                  }
+                  @media (max-width: 1250px) {
+                    .post-card-header .image-container {
+                      height: 160px;
+                    }
                   }
               `}</style>
           </div>
@@ -252,6 +268,15 @@ class BlogIndex extends React.Component {
                     position: relative;
                     width: 100%;
                 }
+                @media (max-width: 640px) {
+                  .top-post-missing-image {
+                    flex-direction: column;
+                  }  
+                  .top-post-missing-image .image-container {
+                    max-height: 200px;
+                    margin-bottom: 16px;
+                  }
+                }
             `}</style>
         </div>
         )
@@ -307,6 +332,11 @@ class BlogIndex extends React.Component {
                 .post-missing-image .image-container img {
                     position: relative;
                     width: 100%;
+                }
+                @media (max-width: 1250px) {
+                  .image-container {
+                    height: 160px;
+                  }
                 }
             `}</style>
         </div>
@@ -390,7 +420,7 @@ class BlogIndex extends React.Component {
                         position: relative;
                         width: 80%;
                         margin: 0 auto;
-                        padding: 10% 0 0 0;
+                        padding: 120px 0 0 0;
                     }
 
                     .top-news-wrapper {
@@ -408,7 +438,7 @@ class BlogIndex extends React.Component {
                       position: relative;
                       width: 80%;
                       margin: 0 auto;
-                      padding: 5% 0;
+                      padding: 16px 0 5% 0;
                     }
 
                     .news-card-grid {
@@ -471,15 +501,42 @@ class BlogIndex extends React.Component {
                     .read-more-link a:hover {
                         color: #1CA9F9;
                     }
-                    @media (max-width: 1440px) {
-                
+
+                    @media (min-width: 2000px) {
+                      .news-card-grid {
+                        grid-gap: 16px 2%;
+                        grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+                      }
                     }
-                    @media (max-width: 768px) {
-                
+                    @media (max-width: 1250px) {
+                      .post-card .post-header {
+                        margin-bottom: 4px;
+                      }
                     }
-                    @media (max-width: 480px) {
-        
-                        
+                    @media (max-width: 960px) {
+                      .news-card-grid {
+                        grid-gap: 16px 1%;
+                        grid-template-columns: 48% 48%;
+                      }
+                    }
+                    @media (max-width: 640px) {
+                      section.top-news .container {
+                        padding: 120px 0 0 0;
+                      }
+                      .news-listing .container {
+                        padding-top: 12px;
+                      }
+                      .top-post-content-wrapper .MD-content {
+                        display: flex;
+                        flex-direction: column;
+                      }
+                      .news-card-grid {
+                        grid-gap: 12px 1%;
+                        grid-template-columns: 100%;
+                      }   
+                      .top-post-title {
+                        font-size: 1rem;
+                      } 
                     }
                 `}</style>
             </Layout>
