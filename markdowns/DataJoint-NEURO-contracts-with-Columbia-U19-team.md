@@ -9,7 +9,6 @@ tags:
 categories: 
 - News
 ---
-
 ![](/static/posts/A-workshop-at-Columbia-University/columbia-zuckerman-logo.jpeg)
 
 In February, the DataJoint NEURO team began a contract with the Columbia U19, to support the development of a DataJoint pipeline consisting of mice colony management, behavior, electrophysiology, and imaging. DataJoint NEURO team is excited to work with multiple labs to establish a standard framework for data management and data sharing.

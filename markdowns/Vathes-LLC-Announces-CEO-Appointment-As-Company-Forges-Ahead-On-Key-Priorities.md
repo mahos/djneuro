@@ -7,7 +7,6 @@ tags:
 categories: 
 - News
 ---
-
 **__[Press Release__]** HOUSTON, Texas, February 1, 2021 – As the Vathes LLC team focuses on key priorities to be delivered in the year ahead, the company’s Member Board is pleased to announce Dimitri Yatsenko’s appointment as CEO effective today.
 
 Dr. Yatsenko co-founded the company in 2016, and has served as its President and, most recently, as VP of Research and Development. While taking on the broader role, he will continue to serve as the Principal Investigator on the National Institute of Health’s (NIH) $3.8 million five-year research and development project, "DataJoint Pipelines for Neurophysiology."

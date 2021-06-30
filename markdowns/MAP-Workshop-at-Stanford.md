@@ -7,5 +7,4 @@ tags:
 categories: 
 - Events
 ---
-
 DataJoint Neuro's data scientist Shan Shen conducted a workshop to introduce the Mesoscale Activity Project data pipeline to Shaul Druckmann’s lab at Stanford University on 6/28/2019. Chris and Thinh have been helping develop the pipeline over the past two years and now the data pipeline is ready for the theoretician to work with.

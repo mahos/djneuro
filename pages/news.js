@@ -5,6 +5,7 @@ import _ from 'lodash';
 import Link from 'next/link';
 import Layout from '../components/Layout.js';
 
+
 function formatDate(date) {
     // console.log('inside formatDate');
     // 2017-06-12T19:33:20.000Z ...(date) 
@@ -13,50 +14,72 @@ function formatDate(date) {
     return date.toString().split(' ').slice(1, 4).join(' ') //TODO: toString() by default displaces the date by +1 - fix to reflect actual date
 }
 
-class StyledP extends React.Component {
-    render(paragraph=this.props) {
-        // console.log(paragraph)
-        return (
-            <div>
-                <p className="paragraphStyle">{paragraph.children}</p>
-                <style jsx>{`
-                    .paragraphStyle {
-                        // border: 2px dotted green;
-                        display: block;
-                        margin: 0 15px;
-                        padding-top: 10px;
-                        line-height: 1.5rem;
-                    }
 
-                    .paragraphStyle > div {
-                        // border: 1px solid red;
-                    }
-                `}</style>
-            </div>
-        )
-    }
+class PostHeaderImage extends React.Component {
+  render(img = this.props) {
+      return (
+          <div className="post-card-header">
+              <div className="image-container">
+                <img className="header-image" src={img.src} alt={img.title} />
+              </div>
+              <style jsx>{`
+                  .post-card-header .image-container {
+                      border: 1px solid lightgrey;
+                      height: 200px;
+                      overflow: hidden;
+                      display: flex;
+                      align-items: center;
+                      position: relative;
+                      border-radius: 2px;
+                      margin-bottom: 16px;
+                  }
+                  .post-card-header img.header-image {
+                      position: relative;
+                      width: 100%;
+                      display: block;
+                  }
+              `}</style>
+          </div>
+      )
+  }
 }
 
-class PostImage extends React.Component {
-    render(img = this.props) {
-        // console.log(img)
-        return (
-            <div className="blogImageContainer">
-                <img src={img.src} alt={img.title} />
-                <style jsx>{`
-                    .blogImageContainer img {
-                        // min-width: 33%;
-                        max-width: 33%;
-                        max-height: 150px;
-                        margin-right: 15px;
-                        margin-top: -10px;
-                        margin-left: -15px;
-                        float: left;
-                    }
-                `}</style>
-            </div>
-        )
-    }
+class PostMissingImage extends React.Component {
+  render(img = this.props) {
+      return (
+          <div className="hidden-post-image">
+              <style jsx>{`
+                  .hidden-post-image {
+                      display: none;
+                  }
+              `}</style>
+          </div>
+      )
+  }
+}
+
+class PostTitleCroppedText extends React.Component {
+  render(paragraph=this.props) {
+      return (
+          <div>
+              <div className="cropped-text-content">
+                {paragraph.children}
+              </div>
+              <style jsx>{`
+                   .cropped-text-content {
+                      position: relative;
+                      width: 100%;
+                      display: block;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      display: -webkit-box;
+                      -webkit-line-clamp: 4;
+                      -webkit-box-orient: vertical;
+                  }
+              `}</style>
+          </div>
+      )
+  }
 }
 
 class BlogIndex extends React.Component {
@@ -76,8 +99,7 @@ class BlogIndex extends React.Component {
                 const slug = key.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.');
                 const value = values[index];
                 // Parse document
-                const document = matter(value.default);
-                // document = { content: '', data: { title:'', date: 2018-12-04T00:00:00.000Z}, isEmpty: false, excerpt: '', orig: <Buffer 2d 2d...>}
+                let document = matter(value.default);
                 
                 return {
                     document,
@@ -92,134 +114,193 @@ class BlogIndex extends React.Component {
             }
             // sortedData['document']['data']['date'].toString().split('T')[0];
             // console.log(sortedData[0].document);
+
             return sortedData;
         })(require.context('../markdowns', true, /\.md$/));
         return {
             posts
         };
     }
+
+    contentParse(content) {
+        // console.log('parsing content: ', content);
+        let contentList = content.split('\n');
+        let headerImage = ''
+        let headerText = ''
+        contentList.forEach(block => {
+            if (block.length && block.startsWith('![](') && headerImage.length == 0) {
+                headerImage = block;
+            }
+
+            if (block.length && !block.startsWith('![](') && headerText.length == 0) {
+                headerText = block;
+            }
+        })
+
+        let newContent = headerImage + '\n' + '' + '\n' + headerText;
+        // console.log('after Parse: ', newContent)
+        //return newContent
+        return (newContent.startsWith('![](/static/posts/') ? 
+
+            <ReactMarkdown source={newContent} 
+                escapeHtml={false}
+                renderers={{
+                    image: props => (
+                        <PostHeaderImage {...props} />
+                    ),
+                    paragraph: props => {
+                        return (
+                        <PostTitleCroppedText {...props} />
+                    )}
+                }}
+            />
+        :
+            <div>
+                <div className="post-missing-image">
+                    <div className="image-container">
+                        <img src="/static/images/image-placeholder.svg" />
+                    </div>
+                    <ReactMarkdown source={newContent.substring(0, 200)} 
+                        escapeHtml={false}
+                        renderers={{
+                            image: props => (
+                                <PostMissingImage />
+                            ),
+                            paragraph: props => (
+                                <PostTitleCroppedText {...props} />
+                            )
+                        }}
+                    />
+                </div>
+                <style jsx>{`
+                    .image-container {
+                        border: 1px solid lightgrey;
+                        height: 200px;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        border-radius: 2px;
+                        margin-bottom: 16px;
+                    }
+                    .post-missing-image .image-container img {
+                        position: relative;
+                        width: 100%;
+                    }
+                `}</style>
+            </div>
+        )
+    }
     render() {
+        
         return (
             <Layout>
-                <div className="newsIndexContainer">
-                    <br />
-                    <h1>News</h1>
-                    {this.props.posts.map(({ document: { data, content }, slug }) => (
-                        <div className="postCard" key={slug}>
-                            <div className="postHeader">
-                                <span className="postDate">{data.dateOnly}</span>
-                                <span className="postTitle">{data.title}</span>
+              <section className="news-listing">
+                  <div className="container">
+                    <div className="news-card-grid">
+                      {this.props.posts.map(({ document: { data, content }, slug }) => {
+                        
+                        return(     
+                            
+                        <div className="post-card" key={slug}>
+                            {/* post date/title */}
+                            <div className="post-header">
+                                <div className="post-date">{data.dateOnly}</div>
+                                <div className="post-title">{data.title}</div>
                             </div>
-                            <div className="mdWrap">
-                                <ReactMarkdown source={content} 
-                                    escapeHtml={false}
-                                    renderers={{
-                                        image: props => (
-                                            <PostImage {...props} />
-                                        ),
-                                        paragraph: props => (
-                                            <StyledP {...props} />
-                                        )
-                                    }}/>
-                            </div>
-                            <div className="readMore">
-                                <div className="readMoreOverlay">
-                                    <div className="readMoreLink">
+                            <div className="post-content-wrapper">
+                            {/* then the post, if .md includes a starter image, then crop for first 320 letters in .md including the image...
+                            and if post doesn't start with image, then crop for 200 letters...yes not being very smart here but 200-300
+                            seems enough while css crops to 4 lines */}
+                                <div className="MD-content">
+                                    {content = this.contentParse(content)}
+                                </div>
+                            
+                                <div className="read-more-area">
+                                    <div className="read-more-link">
                                         <Link href={{ pathname: '/post/' + slug }} key={slug}><a>Read More &#x21c0;</a></Link>
-                                    {/* <Link href={{ pathname: '/post', query: { id: slug } }} key={slug}><a>Read More &#x21c0;</a></Link> */}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </div>
+                      )}
+                      )}
+                    </div>
+                  </div>
+                </section>
                 <style jsx>{`
-                    div.newsIndexContainer {
-                        padding-bottom: 8%;
-                        background-color: #E0E0E0; // little lighter than #DDD
-                    }
-                    .postCard {
-                        border: 2px solid black;
-                        border-radius: 3px;
-                        width: 90%;
-                        transform: translateX(5%);
-                        margin-bottom: 15px;
+                    .news-listing {
+                      width: 100%;
+                      position: relative;
                     }
 
-                    .postHeader {
-                        background-color: #001226; // same as footer top color
-                        color: rgb(220, 220, 220);
-                        font-size: 120%;
-                        margin: 0;
-                        // padding-top: 20px;
-                        height: auto;
+                    .news-listing .container {
+                      position: relative;
+                      width: 80%;
+                      margin: 0 auto;
+                      padding: 10% 0 5% 0;
+                    }
+
+                    .news-card-grid {
+                      position: relative;
+                      width: 100%;
+                      display: grid;
+                      grid-gap: 12px;
+                      grid-template-columns: 1fr 1fr 1fr;
+                    }
+
+                    .post-card {
+                        position: relative;
+                        border: 1px solid lightgrey;
+                        border-radius: 2px;
+                        width: 24vw;
+                        margin: 0 auto;
+                        padding: 24px;
                         display: flex;
-                        flex-direction: row;
-                    }
-                    .postDate {
-                        padding: 13px;
-                        border-right: 1px solid white;
-                        // background-color: blue;
-                    }
-                    .postTitle {
-                        padding: 13px 13px 13px 18px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: space-between;
                     }
 
-                    .mdWrap {
-                        text-align: left;
-                        padding: 0px 15px 20px 0px;
-                        background-color: white;
-                        height: 160px;
-                        position: relative;
-                        overflow: hidden;
-                        color: #001226; // same as footer top color
+                    .post-header {
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 16px;
                     }
-                    .readMore {
+
+                    .post-header .post-date {
+                      font-size: 1rem;
+                      margin-bottom: 8px;
+                      color: slategrey;
+                    }
+                    .post-header .post-title {
+                      font-weight: 600;
+                    }
+
+                    .post-content-wrapper {
+                        position: relative;
                         width: 100%;
-                        display: block;
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
-                        text-align:center;
                     }
-                    .readMoreOverlay {
-                        background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 1));
-                        position: relative;
-                        height: 50px;
-                        width: 100%;
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
+                    
+                    .read-more-area {
+                        text-align: right;
                     }
-                    .readMoreLink {
-                        font-size: 120%;
-                        margin-top: 14px;
-                        position: relative;
+                    .read-more-link a {
+                        text-decoration: none;
+                        color: #3293F1;
+                    }
+
+                    .read-more-link a:hover {
+                        color: #1CA9F9;
                     }
                     @media (max-width: 1440px) {
                 
                     }
                     @media (max-width: 768px) {
-                        div.newsIndexContainer {
-                            padding-bottom: 10%;
-                        }
-                        .postHeader {
-                            font-size: 110%;
-                        }
-                        .readMoreLink {
-                            font-size: 110%;
-                        }
+                
                     }
                     @media (max-width: 480px) {
-                        div.newsIndexContainer {
-                            padding-bottom: 12%;
-                        }
-                        .postHeader {
-                            font-size: 100%;
-                        }
-                        .readMoreLink {
-                            font-size: 100%;
-                        }
+        
                         
                     }
                 `}</style>

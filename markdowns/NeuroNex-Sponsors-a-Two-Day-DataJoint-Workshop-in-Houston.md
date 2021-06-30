@@ -8,7 +8,6 @@ tags:
 categories: 
 - Events
 ---
-&nbsp;
 Edgar Y. Walker and Dimitri Yatsenko ran a two-day workshop on DataJoint sponsored by NeuroNex. The workshop was open to the public and targeted researchers with an interest in stronger data organization tools who had no prior experience working with DataJoint. Edgar led the workshop as the primary instructor. 
 
 Day one covered introductory topics with demonstrations and exercises throughout the workshop. Day two covered hands-on applications of DataJoint, such as building a data pipeline from scratch for an existing project and extending an existing data pipeline with new analysis tables. Edgar also reviewed best practices for integrating DataJoint with other technologies such as GitHub and Docker.
