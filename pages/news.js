@@ -396,6 +396,7 @@ class BlogIndex extends React.Component {
                     .top-news-wrapper {
                         width: 100%;
                         border: 1px solid lightgrey;
+                        box-sizing: border-box;
                         padding: 24px;
                         border-radius: 2px;
                     }
@@ -414,21 +415,21 @@ class BlogIndex extends React.Component {
                       position: relative;
                       width: 100%;
                       display: grid;
-                      grid-gap: 1.35vw;
-                      grid-template-columns: 1fr 1fr 1fr;
+                      grid-gap: 16px 2%;
+                      grid-template-columns: 32% 32% 32%;
                     }
 
                     .post-card {
                         position: relative;
                         border: 1px solid lightgrey;
                         border-radius: 2px;
-                        width: 23vw;
                         margin: 0 auto;
                         padding: 24px;
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
                         justify-content: space-between;
+                        box-sizing: border-box;
                     }
 
                     .post-header {
