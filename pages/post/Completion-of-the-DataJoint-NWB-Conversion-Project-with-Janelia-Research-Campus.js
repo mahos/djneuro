@@ -75,8 +75,9 @@ export default class extends React.Component {
 
                     .post-container {
                         width: 80%;
+                        max-width: 960px;
                         margin: 0 auto;
-                        padding: 10% 0 5%;
+                        padding: 120px 0 5%;
                     }
 
                     .post-date {
