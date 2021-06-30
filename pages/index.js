@@ -267,7 +267,7 @@ class Index extends React.Component {
                 }
 
                 .partner-listing .partner-logo {
-                  height: 60px;
+                  height: 56px;
                 }
 
                 .customer-section .container{
@@ -362,39 +362,90 @@ class Index extends React.Component {
                     font-size: 150%;
                 }
 
-                @media (max-width: 1440px) {
-                    h1.homeTopTagline {
-                        font-size: 280%;
-                    }
+                @media (max-width: 1330px) {
+                  h1.home-top-tagline {
+                    font-size: 2.8rem;
+                  }
+
+                  .home-top-image {
+                    width: 45%;
+                  }
                 }
                
-                @media (max-width: 768px) {
-                    h1.homeTopTagline {
-                        font-weight: 600;
-                        font-size: 240%;
+                @media (max-width: 940px) {
+                    .hero-section {
+                      padding: 164px 5% 32px;
+                    }
+
+                    section .container {
+                      width: 90%;
+                      padding: 7% 5%;
+                    }
+
+                    h1.home-top-tagline {
+                      font-size: 2.6rem;
+                    }
+                    .home-top-image {
+                      width: 40%;
                     }
                     .partner-section {
-                        padding: 7% 0;
                     }
-                    .partner-section img {
+                    .partner-section img.partner-logo {
                         height: 50px;
-                        transform: translateX(-5%);
                     }
                     .customer-section {
-                        padding: 7% 0 120px 0;
                     }
                 }
-                @media (max-width: 480px) {
-                    h1.homeTopTagline {
-                        font-weight: 600;
-                        font-size: 220%;
+                @media (max-width: 740px) {
+                  .partner-section .container .partner-listing {
+                    flex-direction: column;
+                    align-items: center;
+                  }
+                  .partner-section img.partner-logo {
+                    margin-bottom: 24px;
+                  }
+                  section.details-section .detail-image-area {
+                    width: 45%;
+                  }
+                  .detail-image-area img.node-wheel-icon {
+                    width: 80px;
+                    margin-left: 5%;
+                  }
+                  .detail-image-area img.analysis-screen-icon {
+                    width: 100px;
+                    margin-left: 33%;
+                  }
+                }
+                @media (max-width: 520px) {
+                    section.hero-section {
+                      padding: 124px 5% 64px;
+                      background-image: linear-gradient(to right bottom, #050E27, #4977ED 90%, #3293F1 92%, #3B85F0 94%, #1CA9F9 98%);
                     }
-                    .partner-section {
-                        padding: 7% 0;
+                    section.hero-section h1.home-top-tagline {
+                        font-size: 2.8rem;
+                        z-index: 900;
+                        position: relative;
                     }
-                    .partner-section img {
+                    section.hero-section img.home-top-image {
+                      position: absolute;
+                      width: 80%;
+                      right: 0;
+                      bottom: 12px;
+                      opacity: 0.2;
+                      z-index: 0;
+                    }
+                    section.details-section .container {
+                      flex-direction: column;
+                    }
+                    section.details-section .container .detail-texts {
+                      width: 100%;
+                      margin-top: 24px;
+                    }
+                    .partner-section .container .partner-listing {
+                      margin-top: 24px;
+                    }
+                    .partner-section img.partner-logo {
                         height: 40px;
-                        transform: translateX(-10%);
                     }
                     .slider-container {
                         width: 90%;
