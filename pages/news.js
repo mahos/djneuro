@@ -14,6 +14,75 @@ function formatDate(date) {
     return date.toString().split(' ').slice(1, 4).join(' ') //TODO: toString() by default displaces the date by +1 - fix to reflect actual date
 }
 
+class TopPostHeaderImage extends React.Component {
+    render(img = this.props) {
+        return (
+            <div className="top-post-header">
+                <div className="image-container">
+                  <img className="header-image" src={img.src} alt={img.title} />
+                </div>
+                <style jsx>{`
+                    .top-post-header .image-container {
+                        box-shadow: 0px 2px 6px grey;
+                        height: fit-content;
+                        max-height: 400px;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        border-radius: 2px;
+                        margin-bottom: 16px;
+                        width: 50%;
+                    }
+                    .post-card-header img.header-image {
+                        position: relative;
+                        width: 100%;
+                        display: block;
+                    }
+                `}</style>
+            </div>
+        )
+    }
+}
+
+class TopPostText extends React.Component {
+    render(paragraph=this.props) {
+        return (
+            <div>
+                <div className="top-post-text-content">
+                  {paragraph.children}
+                </div>
+                <style jsx>{`
+                     .top-post-text-content {
+                        position: relative;
+                        display: block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 6;
+                        -webkit-box-orient: vertical;
+                        width: 90%;
+                        margin-left: 10%;
+                    }
+                `}</style>
+            </div>
+        )
+    }
+}
+
+class PostMissingImage extends React.Component {
+    render(img = this.props) {
+        return (
+            <div className="hidden-post-image">
+                <style jsx>{`
+                    .hidden-post-image {
+                        display: none;
+                    }
+                `}</style>
+            </div>
+        )
+    }
+  }
 
 class PostHeaderImage extends React.Component {
   render(img = this.props) {
@@ -24,7 +93,8 @@ class PostHeaderImage extends React.Component {
               </div>
               <style jsx>{`
                   .post-card-header .image-container {
-                      border: 1px solid lightgrey;
+                      // border: 1px solid lightgrey;
+                      box-shadow: 0px 2px 6px grey;
                       height: 200px;
                       overflow: hidden;
                       display: flex;
@@ -44,19 +114,6 @@ class PostHeaderImage extends React.Component {
   }
 }
 
-class PostMissingImage extends React.Component {
-  render(img = this.props) {
-      return (
-          <div className="hidden-post-image">
-              <style jsx>{`
-                  .hidden-post-image {
-                      display: none;
-                  }
-              `}</style>
-          </div>
-      )
-  }
-}
 
 class PostTitleCroppedText extends React.Component {
   render(paragraph=this.props) {
@@ -138,67 +195,160 @@ class BlogIndex extends React.Component {
         })
 
         let newContent = headerImage + '\n' + '' + '\n' + headerText;
-        // console.log('after Parse: ', newContent)
-        //return newContent
+
+        return newContent;
+    }
+
+    styleTopNews(content) {
+        let newContent = this.contentParse(content);
+
         return (newContent.startsWith('![](/static/posts/') ? 
 
-            <ReactMarkdown source={newContent} 
-                escapeHtml={false}
-                renderers={{
-                    image: props => (
-                        <PostHeaderImage {...props} />
-                    ),
-                    paragraph: props => {
-                        return (
-                        <PostTitleCroppedText {...props} />
-                    )}
-                }}
-            />
+        <ReactMarkdown source={newContent} 
+            escapeHtml={false}
+            renderers={{
+                image: props => (
+                    <TopPostHeaderImage {...props} />
+                ),
+                paragraph: props => {
+                    return (
+                    <TopPostText {...props} />
+                )}
+            }}
+        />
         :
-            <div>
-                <div className="post-missing-image">
-                    <div className="image-container">
-                        <img src="/static/images/image-placeholder.svg" />
-                    </div>
-                    <ReactMarkdown source={newContent.substring(0, 200)} 
-                        escapeHtml={false}
-                        renderers={{
-                            image: props => (
-                                <PostMissingImage />
-                            ),
-                            paragraph: props => (
-                                <PostTitleCroppedText {...props} />
-                            )
-                        }}
-                    />
+        <div>
+            <div className="top-post-missing-image">
+                <div className="image-container">
+                    <img src="/static/images/image-placeholder.svg" />
                 </div>
-                <style jsx>{`
-                    .image-container {
-                        border: 1px solid lightgrey;
-                        height: 200px;
-                        overflow: hidden;
-                        display: flex;
-                        align-items: center;
-                        position: relative;
-                        border-radius: 2px;
-                        margin-bottom: 16px;
-                    }
-                    .post-missing-image .image-container img {
-                        position: relative;
-                        width: 100%;
-                    }
-                `}</style>
+                <ReactMarkdown source={newContent.substring(0, 400)} 
+                    escapeHtml={false}
+                    renderers={{
+                        image: props => (
+                            <PostMissingImage />
+                        ),
+                        paragraph: props => (
+                            <TopPostText {...props} />
+                        )
+                    }}
+                />
             </div>
+            <style jsx>{`
+                .top-post-missing-image {
+                    display: flex;
+                    align-items: center;
+                }
+                .top-post-missing-image .image-container {
+                    box-shadow: 0px 2px 4px lightgrey;
+                    max-height: 400px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    border-radius: 2px;
+                }
+                .top-post-missing-image .image-container img {
+                    position: relative;
+                    width: 100%;
+                }
+            `}</style>
+        </div>
         )
     }
+
+    styleNewsListing(content) {
+        let newContent = this.contentParse(content);
+
+        return (newContent.startsWith('![](/static/posts/') ? 
+
+        <ReactMarkdown source={newContent} 
+            escapeHtml={false}
+            renderers={{
+                image: props => (
+                    <PostHeaderImage {...props} />
+                ),
+                paragraph: props => {
+                    return (
+                    <PostTitleCroppedText {...props} />
+                )}
+            }}
+        />
+        :
+        <div>
+            <div className="post-missing-image">
+                <div className="image-container">
+                    <img src="/static/images/image-placeholder.svg" />
+                </div>
+                <ReactMarkdown source={newContent.substring(0, 200)} 
+                    escapeHtml={false}
+                    renderers={{
+                        image: props => (
+                            <PostMissingImage />
+                        ),
+                        paragraph: props => (
+                            <PostTitleCroppedText {...props} />
+                        )
+                    }}
+                />
+            </div>
+            <style jsx>{`
+                .image-container {
+                    // border: 1px solid lightgrey;
+                    box-shadow: 0px 2px 4px lightgrey;
+                    height: 200px;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    border-radius: 2px;
+                    margin-bottom: 16px;
+                }
+                .post-missing-image .image-container img {
+                    position: relative;
+                    width: 100%;
+                }
+            `}</style>
+        </div>
+        )
+    }
+
     render() {
-        
+        console.log('this.props.posts: ', this.props.posts)
         return (
             <Layout>
+              <section className="top-news">
+                {/* grabbing the most recent news for top */}
+                {this.props.posts.slice(0,1).map(({ document: { data, content }, slug }) => {
+                    return (
+                        <div className="container">
+                            <div className="top-news-wrapper">
+                                <div className="top-post-header">
+                                    <div className="top-post-date">{data.dateOnly}</div>
+                                    <div className="top-post-title">{data.title}</div>
+                                </div>
+                                <div className="top-post-content-wrapper">
+                                    <div className="MD-content">
+                                        {/* {content = this.contentParse(content)} */}
+                                        {this.styleTopNews(content)}
+                                    </div>
+                                
+                                    <div className="read-more-area">
+                                        <div className="read-more-link">
+                                            <Link href={{ pathname: '/post/' + slug }} key={slug}><a>Read More &#x21c0;</a></Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+              })}
+              </section>
               <section className="news-listing">
                   <div className="container">
                     <div className="news-card-grid">
-                      {this.props.posts.map(({ document: { data, content }, slug }) => {
+                        {/* all other news gets rendered in the card style */}
+                      {this.props.posts.slice(1).map(({ document: { data, content }, slug }) => {
                         
                         return(     
                             
@@ -213,7 +363,8 @@ class BlogIndex extends React.Component {
                             and if post doesn't start with image, then crop for 200 letters...yes not being very smart here but 200-300
                             seems enough while css crops to 4 lines */}
                                 <div className="MD-content">
-                                    {content = this.contentParse(content)}
+                                    {/* {content = this.contentParse(content)} */}
+                                    {this.styleNewsListing(content)}
                                 </div>
                             
                                 <div className="read-more-area">
@@ -229,23 +380,41 @@ class BlogIndex extends React.Component {
                   </div>
                 </section>
                 <style jsx>{`
+                    .top-news,
                     .news-listing {
                       width: 100%;
                       position: relative;
+                    }
+
+                    .top-news .container {
+                        position: relative;
+                        width: 80%;
+                        margin: 0 auto;
+                        padding: 10% 0 0 0;
+                    }
+
+                    .top-news-wrapper {
+                        width: 100%;
+                        border: 1px solid lightgrey;
+                        padding: 24px;
+                        border-radius: 2px;
+                    }
+                    .top-post-content-wrapper .MD-content {
+                        display: flex;
                     }
 
                     .news-listing .container {
                       position: relative;
                       width: 80%;
                       margin: 0 auto;
-                      padding: 10% 0 5% 0;
+                      padding: 5% 0;
                     }
 
                     .news-card-grid {
                       position: relative;
                       width: 100%;
                       display: grid;
-                      grid-gap: 12px;
+                      grid-gap: 1.35vw;
                       grid-template-columns: 1fr 1fr 1fr;
                     }
 
@@ -253,7 +422,7 @@ class BlogIndex extends React.Component {
                         position: relative;
                         border: 1px solid lightgrey;
                         border-radius: 2px;
-                        width: 24vw;
+                        width: 23vw;
                         margin: 0 auto;
                         padding: 24px;
                         display: flex;
@@ -268,13 +437,20 @@ class BlogIndex extends React.Component {
                         margin-bottom: 16px;
                     }
 
-                    .post-header .post-date {
+                    .post-header .post-date,
+                    .top-post-header .top-post-date {
                       font-size: 1rem;
                       margin-bottom: 8px;
                       color: slategrey;
                     }
-                    .post-header .post-title {
+                    .post-header .post-title,
+                    .top-post-header .top-post-title {
                       font-weight: 600;
+                    }
+
+                    .top-post-title {
+                        font-size: 1.4rem;
+                        margin-bottom: 16px;
                     }
 
                     .post-content-wrapper {
