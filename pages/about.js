@@ -110,7 +110,7 @@ const About = () => (
             section.about-datajoint .container {
                 width: 80%;
                 margin: 0 auto;
-                padding: 5% 0;
+                padding: 5% 0 0;
             }
             .about-grid-row {
                 position: relative;
@@ -158,10 +158,14 @@ const About = () => (
                 box-shadow: gray 2px 2px 3px;
                 display: flex;
                 align-items: center;
+                justify-content: center;
+                max-width: 300px;
+                margin: 0 auto;
             }
             .lab-img-container img {
                 width: 100%;
                 border-radius: 50%;
+                max-width: 300px;
             }
 
             hr.row-divider {
@@ -175,9 +179,9 @@ const About = () => (
               position: relative;
               background-image: url('/static/images/title-history.svg');
               background-attachment: fixed;
-              background-position: 90% 35%;
+              background-position: 90% 20%;
               background-repeat: no-repeat;
-              background-size: 40%;
+              background-size: 33%;
             }
 
             .about-history-section .container {
@@ -196,10 +200,11 @@ const About = () => (
             }
 
             .history-stages img.arrow {
+              margin-top: 5%;
               position: absolute;
-              width: 90%;
-              margin-left: 5%;
-              z-index: 10;
+              width: 95%;
+              margin-left: 2.5%;
+              z-index: 0;
             }
 
             .history-stages .timeline {
@@ -225,14 +230,92 @@ const About = () => (
               margin-top: 48px;
             }
 
-            @media (max-width: 1440px) {
-                
+
+            @media (min-width: 1277px) {
+              .about-history-section {
+                margin: 56px 0 10%;
+              }
+              .about-history-section {
+                background-position: 90% 8%;
+                background-size: 420px;
+              }
+              .history-stages {
+                margin-top: 12%;
+              }
+              .history-stages img.arrow {
+                margin-top: 0%;
+                transform: scaleY(50%);
+              }
             }
-            @media (max-width: 768px) {
-                
+            @media (max-width: 1024px) {
+              .about-grid-row .cell-item .cell-content {
+                  margin-top: 0%;
+              }
+              .about-history-section {
+                background-position: 90% 15%;
+                background-size: 40%;
+              }
+              .history-stages img.arrow {
+                margin-top: 10%;
+                transform: scaleY(75%);
+              }
             }
-            @media (max-width: 480px) {
-               
+            @media (max-width: 912px) {
+              section.about-datajoint .container {
+                padding: 120px 0 0;
+              }
+              .about-grid-row {
+                grid-template-columns: 48% 0 48%;
+                grid-gap: 4%;
+              }
+
+              .about-grid-row.flip {
+                grid-template-columns: 48% 48% 0fr;
+                grid-gap: 8%;
+              }
+              .about-history-section {
+                background-position: 90% 10%;
+                background-size: 40%;
+              }
+              .about-history-section .timeline {
+                display: flex;
+                flex-direction: column;
+              }
+              .about-history-section .timeline .stage {
+                width: 70%;
+                margin: 4% auto;
+              }
+              .history-stages img.arrow {
+                transform: rotate(90deg);
+                margin-top: 45%;
+              }
+            }
+            @media (max-width: 640px) {
+              .about-grid-row {
+                grid-template-columns: 1fr;
+                grid-gap: 2%;
+              }
+              .about-grid-row.flip {
+                grid-template-columns: 1fr;
+                grid-gap: 2%;
+              }
+              .lab-img-container {
+                margin: 0 auto;
+              }
+              hr.row-divider {
+                visibility: hidden;
+              }
+              .about-history-section {
+                background-attachment: scroll;
+                background-position: 90% 1%;
+              }
+              .about-history-section .timeline .stage {
+                width: 90%;
+              }
+              .history-stages img.arrow {
+                transform: rotate(90deg) scaleX(150%);
+                margin-top: 66%;
+              }
             }
 
         `}</style>
