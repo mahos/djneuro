@@ -88,7 +88,7 @@ class Navigation extends React.Component {
                             color: white;
                             position: relative;
                             margin: 0 15px;
-                            transform: translateY(-60%);
+                            transform: translateY(-25%);
                         }
                         .nav-right.visible {
                             display: block;
@@ -98,9 +98,10 @@ class Navigation extends React.Component {
                             content: '';
                             background-color: #0f040f;
                             right: 0;
+                            margin-top: 0;
                             width: 66%;
                             text-align: center;
-                            padding-left: 25px;
+                            padding-left: 12px 12px 24px;
                         }
                         .nav-right.visible .link-wrap {
                             display: block;
