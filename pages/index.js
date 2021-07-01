@@ -35,8 +35,6 @@ const sliderSetup = {
     speed: 500
 }
 
-
-
 class Index extends React.Component {
 
     constructor(props) {
@@ -114,48 +112,63 @@ class Index extends React.Component {
                     <h4 className="section-title">Our Projects and Customers</h4>
                     <div className="slider-container">
                         <Slider {...sliderSetup}>
-                            <div className="slider-booth">
-                                <img src="./static/images/logo/color/hhmi_janelia_logo.png" alt="HHMI Janelia Research Campus Logo" height="70px" />
-                                <div className="customer-detail">
-                                    <p>Svoboda Lab @ HHMI Janelia Research Campus</p>
-                                </div>
-                            </div>
+                            
                             <div className="slider-booth">
                                 <img src="./static/images/logo/color/ibl_logo.png" alt="International Brain Laboratory Logo" height="70px" />
                                 <div className="customer-detail">
-                                    <p>International Brain Laboratory</p>
-                                </div>
-                            </div>
-                            <div className="slider-booth">
-                                <img src="./static/images/logo/color/kavli_logo.png" alt="Kavli Institute for Systems Neuroscience Logo" height="70px" />
-                                <div className="customer-detail">
-                                    <p>Moser Lab @ Kavli Institute</p>
-                                </div>
-                            </div>
-                            <div className="slider-booth">
-                                <img src="./static/images/logo/color/bcm_logo.png" alt="Baylor College of Medicine Logo" height="70px" />
-                                <div className="customer-detail">
-                                    <p>Nuo lab @ Baylor College of Medicine</p>
-                                </div>
-                            </div>
-                            <div className="slider-booth">
-                                <img src="./static/images/logo/color/pni_logo.png" alt="Princeton Neuroscience Institute Logo" height="70px" />
-                                <div className="customer-detail">
-                                    <p>Princeton Neuroscience Institute</p>
-                                </div>
-                            </div>
-                            <div className="slider-booth">
-                                <img src="./static/images/logo/color/ucsf_logo.png" alt="UCSF Logo" height="70px" />
-                                <div className="customer-detail">
-                                    <p>Frank lab @ University of California San Francisco</p>
+                                    <p>Since 2018, our team develops computational workflows for 22 neuroscience labs working jointly. 
+                                      Visit the <a href="https://data.internationalbrainlab.org" target="_blank">Data Portal</a>
+                                    </p>
                                 </div>
                             </div>
                             <div className="slider-booth">
                                 <img src="./static/images/logo/color/columbia_logo.png" alt="Columbia University Logo" height="70px" />
                                 <div className="customer-detail">
-                                    <p>Columbia University</p>
+                                    <p>Since 2020, our team supports a collaborative project between 7 labs at Columbia University.</p>
                                 </div>
                             </div>
+                            <div className="slider-booth">
+                                <img src="./static/images/logo/color/kavli_logo.png" alt="Kavli Institute for Systems Neuroscience Logo" height="70px" />
+                                <div className="customer-detail">
+                                    <p>Since 2018, our team has been developing computational workflows for the Nobel-winning Moser Group in Norway.</p>
+                                </div>
+                            </div>
+                            <div className="slider-booth">
+                                <img src="./static/images/logo/color/pni_logo.png" alt="Princeton Neuroscience Institute Logo" height="70px" />
+                                <div className="customer-detail">
+                                    <p>Since 2018, DataJoint supports an NIH-funded collaborative project between 7 labs.</p>
+                                </div>
+                            </div>
+                            <div className="slider-booth">
+                                <img src="./static/images/logo/color/hhmi_janelia_logo.png" alt="HHMI Janelia Research Campus Logo" height="70px" />
+                                <div className="customer-detail">
+                                    <p>Since 2017, DataJoint develops computational workflows for the Mesoscale Activity Project,
+                                      a collaboration between: HHMI/Janelia, Baylor College of Medicine, Stanford, and NYU.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="slider-booth">
+                                <img src="./static/images/logo/color/swc_logo.svg" alt="Sainsbury Wellcome Centre Logo" height="70px" />
+                                <div className="customer-detail">
+                                    <p>Since May 2021, DataJoint supports a five-year project at the Sainsbury Wellcome Centre (London, UK) 
+                                      for a new generation of neuroscience experiments.
+                                    </p>
+                                </div>
+                            </div>
+                            {/* <div className="slider-booth">
+                                <img src="./static/images/logo/color/ucsf_logo.png" alt="UCSF Logo" height="70px" />
+                                <div className="customer-detail">
+                                    <p>Frank lab @ University of California San Francisco</p>
+                                </div>
+                            </div> */}
+                            {/* <div className="slider-booth">
+                                <img src="./static/images/logo/color/bcm_logo.png" alt="Baylor College of Medicine Logo" height="70px" />
+                                <div className="customer-detail">
+                                    <p>Nuo lab @ Baylor College of Medicine</p>
+                                </div>
+                            </div> */}
+                            
+
                         </Slider>
                     </div>
                   </div>
@@ -228,6 +241,7 @@ class Index extends React.Component {
                 .details-section .container .detail-image-area {
                   position: relative;
                   width: 50%;
+                  max-width: 600px;
                   display: flex;
                   flex-direction: column;
                 }
@@ -235,6 +249,7 @@ class Index extends React.Component {
                 .detail-image-area img.node-wheel-icon {
                   width: 130px;
                   margin-left: 10%;
+                  animation: rotate 180s infinite;
                 }
 
                 .detail-image-area img.analysis-screen-icon {
@@ -245,6 +260,7 @@ class Index extends React.Component {
                 .details-section .container .detail-texts {
                   position: relative;
                   width: 50%;
+                  max-width: 800px;
                 }
 
                 .detail-texts p {
@@ -264,6 +280,7 @@ class Index extends React.Component {
                   display: flex;
                   justify-content: space-between;
                   margin-top: 56px;
+                  max-width: 1200px;
                 }
 
                 .partner-listing .partner-logo {
@@ -277,12 +294,7 @@ class Index extends React.Component {
                   width: 100%; 
                   margin: 56px auto;
                 }
-                
-                .slick-next:after,
-                .slick-prev:before {
-                  opacity: 1;
-                  color: gray !important;
-                }
+              
 
                 .slick-center * {
                   transform: scale(1.4) !important;
@@ -293,6 +305,9 @@ class Index extends React.Component {
                 .slider-booth {
                   // border-right: 1px solid lightgrey;
                   margin: 0 20px;
+                  display: flex !important;
+                  flex-direction: column;
+                  align-items: center;
                 }
 
                 .slider-booth img {
@@ -304,14 +319,17 @@ class Index extends React.Component {
                   color: rgb(120, 120, 120);
                   margin-top: 18px;
                   font-size: 0.8rem;
-                  text-align: center;
+                  width: 200px;
                 }
                 
+                {/* TODO: the arrows recolor isn't happening */}
+                .slick-prev:before,
+                .slick-next:before {
+                    color: #050E27 !important;
+                }
 
-                // .slick-prev:before,
-                // .slick-next:before {
-                //     color: blue !important;
-                // }
+                
+
 
                 // these are for temporary event banner notices
                 .noticeContainer {
@@ -360,6 +378,11 @@ class Index extends React.Component {
                     position: absolute;
                     transform: translateX(-50%);
                     font-size: 150%;
+                }
+
+                @keyframes rotate {
+                  from { transform: rotate(0); }
+                  to {transform: rotate(360deg); }
                 }
 
                 @media (max-width: 1330px) {
