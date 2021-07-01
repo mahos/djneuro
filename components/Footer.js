@@ -1,14 +1,5 @@
 import Link from 'next/link';
 
-const footerText = {
-    fontSize: '75%',
-}
-
-const snsLink = {
-    right: '0',
-    bottom: '12px',
-    position: 'absolute'
-}
 const Footer = () => (
     <div>
         <footer>
@@ -84,14 +75,17 @@ const Footer = () => (
         }
 
         footer .footer-contents {
-          display: flex;
+          display: grid;
           width: 80%;
           margin: 42px auto;
-          justify-content: space-between;
+          grid-template-columns: 1fr 1fr 1fr 1.5fr 1fr 1fr;
+          //justify-content: space-between;
         }
 
         .footer-column .column-header {
           font-size: 1rem;
+          margin-top: 0;
+          margin-bottom: 16px;
         }
 
         .footer-column ul.column-list {
@@ -134,6 +128,36 @@ const Footer = () => (
           font-size: 0.7rem;
         }
         
+        @media (max-width: 1054px) {
+          footer .footer-contents {
+            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-row-gap: 24px;
+          }    
+        }
+        @media (max-width: 940px) {
+          footer .footer-contents {
+            width: 90%;
+            margin: 24
+          }  
+        }
+        @media (max-width: 768px) {
+          footer .footer-contents {
+            grid-template-columns: 1fr 1fr;
+          }  
+        }
+        @media (max-width: 480px) {
+          footer .footer-contents {
+            margin: 12px auto;
+            grid-column-gap: 12px;
+          } 
+          ul.column-list li.sns-list {
+            width: 100%;
+          }
+          ul.column-list li.sns-list img {
+            width: 32px;
+            margin-right: 8px;
+          }
+        }
 
 
     `}</style>
