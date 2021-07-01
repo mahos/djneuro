@@ -2,28 +2,10 @@ import Layout from '../components/Layout.js';
 import React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-const background = {
-    // backgroundImage: 'url("/static/images/artwork/blue-cherry-flicker.gif")',
-    // background: 'linear-gradient(353deg, blueviolet, navy, midnightblue, #000011)',
-    // background: 'linear-gradient(303deg, blueviolet, indigo)',
-    background: '#001a33', //'#FFF',
-    backgroundImage: 'url("/static/images/artwork/djneuro_unit.png")',
-    backgroundSize: '12.5%',
-    backgroundRepeat: 'repeat',
-    backgroundPosition: 'top right',
-    // color: '#DDD'
-    color: '#000022',
-    height: '100%'
-};
-
-
-
-
 class ApplyButton extends React.Component {
 
     onClickApply(id, e) {
         this.props.check(id);
-        // this.props.scroll();
     }
 
     render(id=this.props.id) {
@@ -198,8 +180,6 @@ class Services extends React.Component {
     }
 
     onReCaptchaCheck(value) {
-        console.log('recaptcha checked');
-        console.log("Captcha value:", value);
         if (!this.state.reCaptchaChecked) {
             this.setState({
                 reCaptchaChecked: true,
@@ -214,32 +194,91 @@ class Services extends React.Component {
         
         return (
             <Layout>
-                {/* <script src="https://www.google.com/recaptcha/api.js" async defer></script> */}
-                <div style={background}>
-{/* 
-                    <div className="resourceSection">
-                        <h3>Free Resources</h3>
-                        <p className="subtitle1">DataJoint Neuro is the principal contributor to the free, community-oriented, open-source tools comprising the DataJoint ecosystem:</p>
-                        <ul className="resourcesListRow">
-                            <li className="resourcePanel">DataJoint Reference Documentation
-                        <a href="https://docs.datajoint.org" target="_blank"><img src="/static/images/icons/doc_white.png" /></a></li>
-                            <li className="resourcePanel">DataJoint <br />Tutorials
-                        <a href="https://tutorials.datajoint.org" target="_blank"><img src="/static/images/icons/blackboard_white.png" /></a></li>
-                            <li className="resourcePanel">DataJoint Server Configuration
-                        <a href="https://github.com/datajoint/mysql-docker" target="_blank"><img src="/static/images/icons/server-config-white.png" /></a></li>
-                            <li className="resourcePanel">DataJoint <br />Python Client
-                        <a href="https://github.com/datajoint/datajoint-python" target="_blank"><img src="/static/images/icons/python-logo-monoc.png" /></a></li>
-                            <li className="resourcePanel">DataJoint <br />MATLAB Client
-                        <a href="https://github.com/datajoint/datajoint-matlab" target="_blank"><img src="/static/images/icons/matlab-logo-monoc.png" /></a></li>
-                        </ul>
-                        <p className="subtitle2">In collaboration with Karel Svoboda's Lab and Lawrence Berkeley Lab, DataJoint Neuro is preparing a set of "Canonical Data
-                            Pipelines for Neurophysiology" to be presented at the <a className={inlineLink} href="https://www.sfn.org/Meetings/Neuroscience-2019">Society for
-                            Neuroscience Conference in November 2019</a>.
-                        </p>
-                        </div> */}
-                    <br />
-                    {/* <h3>Support Types</h3> */}
-                    <div className="servicesSection">
+              <section className="sciOps-overview">
+                  <div className="container">
+                    <img className="overview-image A" src="/static/images/form-imageA-temp.svg" alt="illustration of user looking at plan options" />
+                    {/* <img className="overview-image B" src="/static/images/form-imageB-temp.svg" alt="illustration of users looking at plan options" /> */}
+                    <div className="overview-cta-area">  
+                      <p className="overview-text">
+                        The <b>DataJoint SciOps</b> service provides a comprehensive approach to organize your team around data analysis workflows—tested in many successful team projects 
+                        in neuroscience and machine learning research. The service uses the open-source DataJoint framework for integrating diverse data collection and 
+                        analysis tools into collaborative data workflows.
+                      </p>
+                      <div className="button-wrapper">
+                        <div className="left-butt"></div>
+                        <button className="show-form-button">Inquire about SciOps</button>
+                        <div className="right-butt"></div>
+                      </div>
+                    </div>
+                  </div>
+              </section>
+              <section className="sciOps-detail">
+                  <div className="container">
+                    <p className="detail-intro">DataJoint SciOps includes four service components:</p>
+                    <div className="service-options">
+                      <div className="service-container">
+                        <div className="panel-head">
+                          <img className="service-icon" src="/static/images/sciopIcon1.svg" />
+                          <span className="service-name">Data Science Planning</span>
+                          <span className="arrow up hide">&#x2191</span><span className="arrow down">&#x2193</span>
+                        </div>
+                        <div className="panel-content">
+                          <ul className="service-list">
+                            <li className="service-item">Project proposals, budgeting, and management</li>
+                            <li className="service-item">Computing resource management</li>
+                            <li className="service-item">Code management and data provenance</li>
+                            <li className="service-item">Data protection and sharing</li>
+                            <li className="service-item">Training programs</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="service-container">
+                        <div className="panel-head">
+                          <img className="service-icon" src="/static/images/sciopIcon2.svg" />
+                          <span className="service-name">Workflow Definition</span>
+                          <span className="arrow up hide">&#x2191</span><span className="arrow down">&#x2193</span>
+                        </div>
+                        <div className="panel-content">
+                          <ul className="service-list">
+                            <li className="service-item">Define data entry, acquisition, and formats</li>
+                            <li className="service-item">Automate data analysis</li>
+                            <li className="service-item">Begin with standard solutions, then customize and extend</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="service-container">
+                        <div className="panel-head">
+                          <img className="service-icon" src="/static/images/sciopIcon3.svg" />
+                          <span className="service-name">Workflow Hosting and Operation</span>
+                          <span className="arrow up hide">&#x2191</span><span className="arrow down">&#x2193</span>
+                        </div>
+                        <div className="panel-content">
+                          <ul className="service-list">
+                            <li className="service-item">Configure and monitor computing infrastructure</li>
+                            <li className="service-item">Available full-service hosting and operation by our team</li>
+                            <li className="service-item">Flexible queries and export of processed data</li>
+                            <li className="service-item">Online computing environment and website for visualization and statistics</li>
+                            <li className="service-item">Change management: upgrades and data migrations</li>
+                            <li className="service-item">Monitoring, notifications, and issue resolution</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="service-container">
+                        <div className="panel-head">
+                          <img className="service-icon" src="/static/images/sciopIcon4.svg" />
+                          <span className="service-name">Collaborate and Publish</span>
+                          <span className="arrow up hide">&#x2191</span><span className="arrow down">&#x2193</span>
+                        </div>
+                        <div className="panel-content">
+                          <ul className="service-list">
+                            <li className="service-item">Grant access to collaborators</li>
+                            <li className="service-item">Data export, documentations, and packaging</li>
+                            <li className="service-item">Data licensing, citation, and submission to publishers, archives, and catalogs</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
                         <div className="servicePanel">
                             <h4 className="servicePanelTitle">Basic Support</h4>
                             <div className="servicePanelText">
@@ -386,10 +425,76 @@ class Services extends React.Component {
                             </div>
                             <div style={{ float: "left", clear: "both" }} ref={this.formOpenedRef}></div>
                         </form> */}
-                        </div>
                     </div>
 
+                </section>
+
                 <style jsx>{`
+                    section.sciOps-overview,
+                    section.sciOps-detail {
+                      position: relative;
+                      width: 100%;
+                    }
+
+                    section.sciOps-overview .container,
+                    section.sciOps-detail .container {
+                      position: relative;
+                      width: 80%;
+                      margin: 0 auto;
+                    }
+
+                    section.sciOps-overview .container {
+                      padding: 120px 0 5%;
+                      display: flex;
+                      justify-content: space-around;
+                    }
+
+                    .sciOps-overview img.overview-image {
+                      width: 45%;
+                    }
+                    .sciOps-overview .overview-cta-area {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      width: 40%;
+                    }
+
+                    .overview-cta-area .button-wrapper {
+                      height: 60px;
+                      padding: 0;
+                      position: relative;
+                      display: flex;
+                      z-index: 10;
+                    }
+
+                    .overview-cta-area .button-wrapper .left-butt,
+                    .overview-cta-area .button-wrapper .right-butt {
+                      position: relative;
+                      height: 100%;
+                      background-color: #4977ED;
+                      width: 80px;
+                      z-index: 10;
+                    }
+                    .overview-cta-area .button-wrapper .left-butt {
+                      border-radius: 48% 0 0 48%;
+                      transform: translateX(41px);
+                    }
+                    .overview-cta-area .button-wrapper .right-butt {
+                      border-radius: 0 48% 48% 0;
+                      transform: translateX(-41px);
+                    }
+
+                    .overview-cta-area button.show-form-button {
+                      padding: 0;
+                      border: none;
+                      background-color: #4977ED;
+                      color: #FCFCFC;
+                      font-size: 1.2rem;
+                      white-space: nowrap;
+                      font-weight: 600;
+                      z-index: 20;
+                    }
+
                     .construction {
                         height: 500px;
                     }
@@ -416,13 +521,12 @@ class Services extends React.Component {
                     }
 
                     .servicePanel {
+                        display: none;
                         width: 31%;
                         margin: 0 0.3%;
                         list-style-type: disc;
-                        // border: 3px solid #DDD;
                         border: 1.5px solid blueviolet;
                         border-radius: 5px;
-                        // background-color: rgba(0, 0, 0, 0.7);
                         background-color: rgba(255, 255, 255, 0.82);
                         position: relative;
                     }
