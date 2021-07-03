@@ -295,7 +295,10 @@ class Index extends React.Component {
                   margin: 56px auto;
                 }
               
-
+                .slick-list .slick-slider .slick-track {
+                  position: relative;
+                  display: flex;
+                }
                 .slick-center * {
                   transform: scale(1.4) !important;
                   // margin-left: auto;
@@ -417,6 +420,9 @@ class Index extends React.Component {
                         height: 50px;
                     }
                     .customer-section {
+                    }
+                    .slick-list .slick-track {
+                      display: flex !important;
                     }
                 }
                 @media (max-width: 740px) {
