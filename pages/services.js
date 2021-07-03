@@ -55,6 +55,10 @@ class Services extends React.Component {
         let validationErrors = this.state.formErrors;
         let validationStatus = this.state.fieldStatus;
 
+        // no need to show error for not having these fields at the moment
+        validationStatus.departmentValid = true;
+        validationStatus.projectValid = true;
+
         switch(fieldname) {
             case 'name':
                 validationStatus.nameValid = value.length > 0 ? true : false;
@@ -68,10 +72,6 @@ class Services extends React.Component {
                 validationStatus.institutionValid = value.length > 0 ? true : false;
                 validationErrors.institution = validationStatus.institutionValid ? '' : 'institution is required';
                 break;
-            default:
-                validationStatus.departmentValid = true;
-                validationStatus.projectValid = true;
-                break;
         }
         this.setState({formErrors: validationErrors,
                        fieldStatus: validationStatus 
@@ -84,7 +84,7 @@ class Services extends React.Component {
                                         this.state.fieldStatus.departmentValid &&
                                         this.state.fieldStatus.institutionValid &&
                                         this.state.fieldStatus.projectValid 
-                                        //&& this.state.reCaptchaChecked
+                                    && this.state.reCaptchaChecked
                       });
         // console.log('field status is...', this.state.fieldStatus);
         // console.log('form validation status is...', this.state.allFormFieldsValid);
@@ -248,13 +248,15 @@ class Services extends React.Component {
                                     <input className="inputField" type="text" name="department" placeholder="Department"
                                         value={this.state.form.department} onChange={(e) => this.handleUserInput(e)} onKeyDown={(e) => this.handleReturn(e)} />
                                 </div>
+                                <p className="error-message placeholder"> </p>
                             </div>
                             <div className="formgroup">
                                 <div className="field-group">
-                                    <label>Project Description</label>
-                                    <textarea className="inputField large" type="text" name="project" placeholder="Project Description" 
+                                    <label>Comment</label>
+                                    <textarea className="inputField large" type="text" name="project" placeholder="Comment" 
                                         value={this.state.form.project} onChange={(e) => this.handleUserInput(e)}></textarea>
                                 </div>
+                                <p className="error-message placeholder"> </p>
                             </div>
                             {/* <div className="formgroup radioFieldContainer">
                                 <div>
@@ -273,7 +275,9 @@ class Services extends React.Component {
                             
                             </div>
                             
+                            {/* Keep the below reCAPTCHA for testing - comment out for production*/}
                             {/* <ReCAPTCHA sitekey="6LcsDe8UAAAAAHm_EupFZJLqKItXdLmsukxFbED5" onChange={(e) => this.onReCaptchaCheck(e)}/>  for - testing */}
+                            {/* Use the below reCAPTCHA for production */}
                             <ReCAPTCHA sitekey="6LehZO4UAAAAAAAyUzEujxHSIEz7Fn_noCeEjdvI" onChange={(e) => this.onReCaptchaCheck(e)}/>
                             <button className="form-button-wrapper" type="submit" value="submit" disabled={!this.state.allFormFieldsValid}>
                                 <div className="submit-left-butt"></div>
@@ -406,8 +410,6 @@ class Services extends React.Component {
                         padding-inline-start: 18px;
                         display: grid;
                         grid-template-columns: 30% 30% 30%;
-                        grid-template-rows: auto auto;
-                        grid-auto-flow: column;
                         column-gap: 5%;
                         row-gap: 1.33rem;
                         margin: 32px 0;
@@ -538,9 +540,9 @@ class Services extends React.Component {
                     }
 
                     
-                    .form-button-wrapper:hover .submit-left-butt,
-                    .form-button-wrapper:hover .submit-right-butt,
-                    .form-button-wrapper:hover .form-button {
+                    .form-button-wrapper:hover:not(:disabled) .submit-left-butt,
+                    .form-button-wrapper:hover:not(:disabled) .submit-right-butt,
+                    .form-button-wrapper:hover:not(:disabled) .form-button {
                         border-color: #0F3595;
                         background-color: #0F3595;
                         color: #FCFCFC;
@@ -552,27 +554,81 @@ class Services extends React.Component {
                     .error-message {
                         font-size: 70%;
                         color: red;
-                        margin-top: 3px;
+                        margin-top: 2px;
+                    }
+                    .error-message.placeholder {
+                        color: #1A1A1A;
                     }
                     p.formHelpText {
                         font-size: 70%;
-                        margin-top: 3px;
+                        margin-top: 2px;
                     }
 
                     
 
-                    @media (max-width: 1024px) {
-                        
+                    @media (max-width: 940px) {
+                        section.sciOps-overview .container,
+                        section.sciOps-detail .container,
+                        section.inquiry-form .form-container {
+                            width 90%;
+                        }
                         
                         
                     }
                     @media (max-width: 768px) {
-                      
-
-                        
+                        section.sciOps-overview .container {
+                            padding-bottom: 7.5%;
+                        }
+                        .sciOps-overview img.overview-image {
+                            width: 35%;
+                        }
+                        .sciOps-overview .overview-cta-area {
+                            width: 60%;
+                        }
+                        .service-container .panel-head {
+                            width: 75%;
+                        }
+                        .panel-content ul.service-list {
+                            grid-template-columns: 45% 45%;
+                        }
+                        .form-content {
+                            grid-template-rows: auto auto auto auto auto;
+                            grid-template-columns: 90%;
+                        }
+                        .formgroup .inputField {
+                            width: 66%;
+                        }
+                        .error-message {
+                            margin-left: 30%;
+                        }
                     }
                     @media (max-width: 480px) {
-                    
+                        section.sciOps-overview .container {
+                            flex-direction: column;
+                        }
+                        .sciOps-overview .button-wrapper {
+                            margin-top: 0;
+                        }
+                        .sciOps-overview img.overview-image {
+                            width: 45%;
+                        }
+                        .sciOps-overview .overview-cta-area {
+                            width: 90%;
+                        }
+                        .service-container .panel-head {
+                            width: 90%;
+                        }
+                        .panel-content ul.service-list {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        .form-content {
+                            grid-template-rows: auto auto auto auto auto;
+                            grid-template-columns: 90%;
+                        }
+                        .formgroup .inputField {
+                            width: 80%;
+                        }
                     }
 
                 `}</style>
