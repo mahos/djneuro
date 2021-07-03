@@ -8,7 +8,7 @@ const About = () => (
                 <div className="cell-item">
                     <div className="cell-content">
                         <h4 className="section-title">The DataJoint experts</h4>
-                        <p>Our team is the principal developer of <a href="https://datajoint.io">DataJoint®</a> — a free, open-source framework 
+                        <p>Our team is the principal developer of <a href="https://datajoint.org">DataJoint®</a> — a free, open-source framework 
                         for shared scientific databases and computational data pipelines programmed and accessed directly from MATLAB and Python. 
                         </p>
                     </div>

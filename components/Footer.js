@@ -8,23 +8,23 @@ const Footer = () => (
               <h4 className="column-header">Connect</h4>
               <ul className="column-list">
                 <li className="sns-list">
-                  <a href="#">
+                  <a href="https://twitter.com/datajointneuro" target="_blank">
                     <img src="/static/images/icons/tw-icon-white-sq.svg" />
                   </a>
-                  <a href="#">
+                  <a href="https://github.com/datajoint" target="_blank">
                     <img src="/static/images/icons/github-icon-white-sq.svg" />
                   </a>
-                  <a href="#">
+                  <a href="https://www.linkedin.com/company/datajoint" target="_blank">
                     <img src="/static/images/icons/ldn-icon-white-sq.svg" />
                   </a>
-                  <a href="#">
+                  <a href="https://medium.com/datajoint" target="_blank">
                     <img src="/static/images/icons/mblog-icon-white-sq.svg" />
                   </a>
-                  <a href="#">
+                  <a href="https://www.youtube.com/channel/UCRtKuW3Y_gpr2nA4H8k_Vhg" target="_blank">
                     <img src="/static/images/icons/ytube-icon-white-sq.svg" />
                   </a>
                 </li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="mailto:info@datajoint.com" target="_blank">Contact Us</a></li>
               </ul>
             </div>
             <div className="footer-column">
@@ -44,9 +44,9 @@ const Footer = () => (
             <div className="footer-column">
               <h4 className="column-header">Resources</h4>
               <ul className="column-list">
-                <li><a href="#"><span>DataJoint Open Source</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
-                <li><a href="#"><span>DataJoint Playground</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
-                <li><a href="#"><span>Accounts Management</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
+                <li><a href="https://datajoint.org/"><span>DataJoint Open Source</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
+                <li><a href="https://playground.datajoint.io/"><span>DataJoint Playground</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
+                <li><a href="https://accounts.datajoint.io"><span>Accounts Management</span><img className="ext-link-icon" src="/static/images/icons/external-link-icon.svg" /></a></li>
               </ul>
             </div>
             <div className="footer-column">

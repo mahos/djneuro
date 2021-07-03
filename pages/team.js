@@ -12,8 +12,8 @@ const Team = () => (
                 <div className="grid-area">
                     <div className="member-card animated fadeInLeft" >
                         <div className="member-sns">
-                          <a href="#"><img src="/static/images/icons/ldn-individual.svg" /></a>
-                          <a href="#"><img src="/static/images/icons/github-individual.svg" /></a>
+                          <a href="https://www.linkedin.com/in/dimitriyatsenko/" target="_blank"><img src="/static/images/icons/ldn-individual.svg" /></a>
+                          <a href="https://github.com/dimitri-yatsenko" target="_blank"><img src="/static/images/icons/github-individual.svg" /></a>
                         </div>
                         <img className="member-photo" src="/static/images/team/dimitriyatsenko.jpg" />
                         <div className="member-text">
@@ -37,8 +37,8 @@ const Team = () => (
                     </div>
                     <div className="member-card animated fadeInLeft">
                         <div className="member-sns">
-                          <a href="#"><img src="/static/images/icons/ldn-individual.svg" /></a>
-                          <a href="#"><img src="/static/images/icons/github-individual.svg" /></a>
+                          <a href="https://www.linkedin.com/in/cturner199/" target="_blank"><img src="/static/images/icons/ldn-individual.svg" /></a>
+                          <a href="https://github.com/ixcat/" target="_blank"><img src="/static/images/icons/github-individual.svg" /></a>
                         </div>
                         <img className="member-photo" src="/static/images/team/christurner.jpg" />
                         
@@ -74,9 +74,9 @@ const Team = () => (
                 <div className="grid-area">
                     <div className="member-card animated fadeInRight">
                         <div className="member-sns">
-                          <a href="#"><img src="/static/images/icons/tw-individual.svg" /></a>
-                          <a href="#"><img src="/static/images/icons/ldn-individual.svg" /></a>
-                          <a href="#"><img src="/static/images/icons/github-individual.svg" /></a>
+                          <a href="https://twitter.com/eywalker" target="_blank"><img src="/static/images/icons/tw-individual.svg" /></a>
+                          <a href="https://www.linkedin.com/in/edgar-walker-379947109/" target="_blank"><img src="/static/images/icons/ldn-individual.svg" /></a>
+                          <a href="https://github.com/eywalker" target="_blank"><img src="/static/images/icons/github-individual.svg" /></a>
                         </div>
                         <img className="member-photo" src="/static/images/team/edgarwalker.jpg" />
                         <div className="member-text">
