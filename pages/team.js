@@ -199,19 +199,29 @@ const Team = () => (
               
             }
 
-
-            @media (min-width: 769px) {
-                
-            }
             
-            @media (max-width: 1024px) {
-                
+            @media (max-width: 940px) {
+              .team-group img.group-photo {
+                width: 90%;
+              }
+
+              .team-titled .container {
+                width: 90%;
+              }
+
+              .team-titled .grid-area {
+                grid-template-columns: 1fr 1fr 1fr;
+              }
             }
-            @media (max-width: 768px) {
-                
+            @media (max-width: 600px) {
+              .team-titled .grid-area {
+                grid-template-columns: 1fr 1fr;
+              }
             }
-            @media (max-width: 480px) {
-                
+            @media (max-width: 400px) {
+              .team-titled .grid-area {
+                grid-template-columns: 1fr;
+              }
             }
         `}</style>
     </Layout>
